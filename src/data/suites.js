@@ -737,7 +737,7 @@ export const suites = [
     shortDescription:
       'A cozy two-bedroom wood home with air conditioning, porch seating, and shared infinity pool access nearby.',
     description:
-      'Villa Carey is a charming two-bedroom wood home designed for quiet mornings, easy cooking, and relaxed wildlife watching from the porch. Each bedroom has a queen bed, TV, and air conditioning, while the beach is about a seven-minute stroll away. Set within a 13-acre retreat with exotic fruit trees and access to a shared infinity pool across the street, it is a cozy option for a peaceful Caribbean stay.',
+      'Villa Carey is a charming two-bedroom wood home designed for quiet mornings, easy cooking, and relaxed wildlife watching from the porch. Each bedroom has a queen bed, TV, and air conditioning, while the beach is about a seven-minute stroll away. Set within a 13-acre retreat with exotic fruit trees and access to a shared infinity pool at our sister property, about a 2-minute walk away, it is a cozy option for a peaceful Caribbean stay.',
     sleepingArrangements: [
       { label: 'Bedroom 1', bed: '1 Queen Bed', image: '/images/suites/carey/carey-10.webp' },
       { label: 'Bedroom 2', bed: '1 Queen Bed', image: '/images/suites/carey/carey-12.webp' },
@@ -781,7 +781,10 @@ export const suites = [
       },
       {
         title: 'Other things to note',
-        items: ['Construction on the property is currently paused; guests will be notified if it resumes.'],
+        items: [
+          'Construction on the property is currently paused; guests will be notified if it resumes.',
+          'The infinity pool is located at our sister property, about a 2-minute walk away.',
+        ],
       },
       {
         title: 'Not included',
@@ -887,6 +890,30 @@ export const isSuiteAvailable = (slug, arrival, departure) => {
   })
 }
 
+// Finds the closest same-length stay (shifted up to maxShiftDays earlier or
+// later, never before today) that this suite has open — used for the
+// "Available for similar dates" row when the requested dates are booked.
+export const findNearbyAvailableStay = (slug, arrival, departure, maxShiftDays = 14) => {
+  if (!arrival || !departure || departure <= arrival) return null
+
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  for (let distance = 1; distance <= maxShiftDays; distance += 1) {
+    for (const shift of [distance, -distance]) {
+      const shiftedArrival = new Date(arrival.getFullYear(), arrival.getMonth(), arrival.getDate() + shift)
+      const shiftedDeparture = new Date(departure.getFullYear(), departure.getMonth(), departure.getDate() + shift)
+
+      if (shiftedArrival < today) continue
+      if (isSuiteAvailable(slug, shiftedArrival, shiftedDeparture)) {
+        return { arrival: shiftedArrival, departure: shiftedDeparture }
+      }
+    }
+  }
+
+  return null
+}
+
 export const getDaysUntilArrival = (arrival) => {
   const today = new Date()
   today.setHours(0, 0, 0, 0)
@@ -949,6 +976,10 @@ const spanishSuiteText = {
   'Cozy studio layout': 'Distribución acogedora tipo estudio', 'Small kitchen': 'Cocina pequeña', 'Private rancho with a barbecue area': 'Rancho privado con área de parrilla', 'Outdoor lounge area': 'Área de descanso exterior',
   'Wood-style home': 'Casa de estilo madera', 'Spacious wraparound veranda': 'Amplia terraza envolvente', 'Hammocks for relaxing': 'Hamacas para relajarse', 'Private path to the shared infinity pool': 'Sendero privado hacia la piscina infinita compartida', 'Outdoor space for barbecuing': 'Espacio exterior para asar',
   'Spacious wraparound terrace': 'Amplia terraza envolvente', 'Abundant wildlife and exotic fruit trees': 'Abundante vida silvestre y árboles frutales exóticos', 'Private tropical living with modern comforts': 'Vida tropical privada con comodidades modernas', 'Cozy wood-style home': 'Acogedora casa de estilo madera', 'Relaxing porch': 'Porche para relajarse', 'Abundant wildlife': 'Abundante vida silvestre', 'Exotic fruit trees': 'Árboles frutales exóticos', 'Peaceful Caribbean setting': 'Entorno caribeño tranquilo',
+  'Guests have access to the entire home.': 'Los huéspedes tienen acceso a toda la casa.',
+  'Construction on the property is currently paused; guests will be notified if it resumes.': 'La construcción en la propiedad está pausada por ahora; se avisará a los huéspedes si se reanuda.',
+  'The infinity pool is located at our sister property, about a 2-minute walk away.': 'La piscina infinita se encuentra en nuestra propiedad hermana, a unos 2 minutos caminando.',
+  'Essentials, exterior security cameras, smoke alarm, carbon monoxide alarm, and heating are not available.': 'No se incluyen artículos esenciales, cámaras de seguridad exteriores, detector de humo, detector de monóxido de carbono ni calefacción.',
 }
 
 const spanishSuiteNarratives = {

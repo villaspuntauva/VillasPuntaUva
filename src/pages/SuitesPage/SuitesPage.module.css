@@ -55,6 +55,7 @@
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 56px 24px 96px;
+  scroll-margin-top: var(--nav-height);
 }
 
 .message {
@@ -83,7 +84,6 @@
   gap: 16px;
   margin-bottom: 24px;
   padding: 14px 18px;
-  scroll-margin-top: calc(var(--nav-height) + 28px);
   border-radius: var(--border-radius);
   background: var(--color-white);
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
@@ -109,6 +109,41 @@
 .clearButton:hover,
 .emptyButton:hover {
   background-color: var(--color-primary-dark);
+}
+
+.similarDates {
+  margin: 40px 0 16px;
+}
+
+.similarDates:first-child {
+  margin-top: 0;
+}
+
+.listings:has(> .similarDates:first-child) {
+  padding-top: 28px;
+}
+
+.similarTitle {
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--color-dark);
+}
+
+.dateBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  padding: 6px 12px;
+  border-radius: 50px;
+  background: var(--color-white);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+  color: var(--color-dark);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .grid {

@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { IoBedOutline, IoPeopleOutline } from 'react-icons/io5'
 import { LuBath } from 'react-icons/lu'
 import BookingWidget from '../../sections/BookingWidget/BookingWidget'
-import { getLocalizedSuites, getLowestNightlyRate, isSuiteAvailable } from '../../data/suites'
+import { findNearbyAvailableStay, getLocalizedSuites, getLowestNightlyRate, isSuiteAvailable } from '../../data/suites'
 import styles from './SuitesPage.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
 import SEO from '../../components/SEO/SEO'
@@ -74,7 +74,19 @@ function getMaxGuests(suite) {
   return suite.maxGuests ?? suite.sleeps
 }
 
-function SuiteListingCard({ suite, dimmed, searchParams }) {
+function formatStayRange(stay, locale) {
+  const sameMonth =
+    stay.arrival.getMonth() === stay.departure.getMonth() &&
+    stay.arrival.getFullYear() === stay.departure.getFullYear()
+  const start = stay.arrival.toLocaleDateString(locale, { month: 'short', day: 'numeric' })
+  const end = sameMonth
+    ? stay.departure.toLocaleDateString(locale, { day: 'numeric' })
+    : stay.departure.toLocaleDateString(locale, { month: 'short', day: 'numeric' })
+
+  return `${start} – ${end}`
+}
+
+function SuiteListingCard({ suite, dimmed, searchParams, stayBadge }) {
   const { language, locale, t, localizePath } = useLanguage()
   const query = searchParams?.toString()
   return (
@@ -90,6 +102,7 @@ function SuiteListingCard({ suite, dimmed, searchParams }) {
           loading="lazy"
           decoding="async"
         />
+        {stayBadge && <span className={styles.dateBadge}>{formatStayRange(stayBadge, locale)}</span>}
       </div>
       <div className={styles.cardBody}>
         <div className={styles.cardHeader}>
@@ -153,6 +166,27 @@ export default function SuitesPage() {
     if (!appliedStay) return []
     return guestFilteredSuites.filter((suite) => !isSuiteAvailable(suite.slug, appliedStay.arrival, appliedStay.departure))
   }, [guestFilteredSuites, appliedStay])
+
+  const similarDateSuites = useMemo(() => {
+    if (!appliedStay) return []
+    const oneNight = Math.round((appliedStay.departure - appliedStay.arrival) / (1000 * 60 * 60 * 24)) === 1
+
+    return conflictSuites
+      .filter((suite) => !oneNight || NO_MINIMUM_SLUGS.includes(suite.slug))
+      .map((suite) => ({ suite, stay: findNearbyAvailableStay(suite.slug, appliedStay.arrival, appliedStay.departure) }))
+      .filter(({ stay }) => stay)
+  }, [conflictSuites, appliedStay])
+
+  const unavailableSuites = conflictSuites.filter(
+    (suite) => !similarDateSuites.some((item) => item.suite.id === suite.id),
+  )
+
+  const getSimilarStayParams = (stay) => {
+    const params = new URLSearchParams(searchParams)
+    params.set('arrival', formatDateParam(stay.arrival))
+    params.set('departure', formatDateParam(stay.departure))
+    return params
+  }
 
   const filteredSuites = useMemo(() => {
     if (!appliedStay) return guestFilteredSuites
@@ -250,15 +284,15 @@ export default function SuitesPage() {
         onSearch={handleSearch}
       />
 
-      <section className={styles.listings} aria-label={t('suites.listings')}>
+      <section id="available-suites" className={styles.listings} aria-label={t('suites.listings')}>
         {error && (
           <p className={styles.message} role="alert">
             {error}
           </p>
         )}
 
-        {!error && (
-          <div id="available-suites" className={styles.filterBar}>
+        {!error && availableSuites.length > 0 && (
+          <div className={styles.filterBar}>
             <p>
               {guestFilter
                 ? t('suites.showingFor', { count: guestFilter, unit: guestFilter === 1 ? t('common.guest').toLowerCase() : t('common.guests').toLowerCase() })
@@ -296,13 +330,30 @@ export default function SuitesPage() {
               </>
             )}
 
-            {!error && conflictSuites.length > 0 && (
+            {!error && similarDateSuites.length > 0 && (
+              <div className={styles.similarDates}>
+                <h2 className={styles.similarTitle}>{t('suites.similarDates')}</h2>
+                <div className={styles.grid}>
+                  {similarDateSuites.map(({ suite, stay }) => (
+                    <SuiteListingCard
+                      key={suite.id}
+                      suite={suite}
+                      dimmed={false}
+                      searchParams={getSimilarStayParams(stay)}
+                      stayBadge={stay}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {!error && unavailableSuites.length > 0 && (
               <>
                 <div className={styles.message}>
                   <p>{t('suites.datesUnavailable')}</p>
                 </div>
                 <div className={styles.grid}>
-                  {conflictSuites.map((suite) => (
+                  {unavailableSuites.map((suite) => (
                     <SuiteListingCard key={suite.id} suite={suite} dimmed searchParams={dimmedSearchParams} />
                   ))}
                 </div>
