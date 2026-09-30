@@ -29,7 +29,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.join(__dirname, '..')
 const DIST = path.join(ROOT, 'dist')
 
-const BASE_PATHS = ['/', '/suites', '/location', '/about', '/explore', '/contact', '/faq']
+const BASE_PATHS = ['/', '/suites', '/location', '/puerto-viejo-costa-rica', '/about', '/explore', '/contact', '/faq']
 
 const SUITE_SLUGS = [
   'villa-mariposa',

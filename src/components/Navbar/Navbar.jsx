@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
 import { getLocalizedSuites } from '../../data/suites'
+import { puertoViejoContent } from '../../data/puertoViejo'
 import BookingModal from '../BookingModal/BookingModal'
 import { useLanguage } from '../../i18n/LanguageContext'
 import styles from './Navbar.module.css'
@@ -54,6 +55,16 @@ export default function Navbar() {
         { key: 'compare', to: `${localizePath('/location')}#compare`, label: t('nav.locationCompare') },
         { key: 'proof', to: `${localizePath('/location')}#proof`, label: t('nav.locationProof') },
       ],
+    },
+    {
+      to: localizePath('/puerto-viejo-costa-rica'),
+      label: t('nav.puertoViejo'),
+      hasDropdown: true,
+      dropdownItems: puertoViejoContent[language].chapters.map((chapter) => ({
+        key: chapter.id,
+        to: `${localizePath('/puerto-viejo-costa-rica')}#${chapter.id}`,
+        label: chapter.label,
+      })),
     },
     {
       to: localizePath('/explore'),

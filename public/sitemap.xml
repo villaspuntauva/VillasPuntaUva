@@ -189,6 +189,23 @@
   </url>
 
   <url>
+    <loc>https://www.villaspuntauva.com/puerto-viejo-costa-rica</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/puerto-viejo-costa-rica" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/puerto-viejo-costa-rica" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/puerto-viejo-costa-rica" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.villaspuntauva.com/es/puerto-viejo-costa-rica</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/puerto-viejo-costa-rica" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/puerto-viejo-costa-rica" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/puerto-viejo-costa-rica" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://www.villaspuntauva.com/explore</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/explore" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/explore" />

@@ -8,3 +8,6 @@ airbnb-ical.config.json
 # Raw/unedited source footage — too large for git, keep only the
 # compressed, web-ready exports under public/videos.
 assets/videos
+
+# Full-size photo originals; only the resized .webp files are published
+public/images/puerto-viejo/**/Fruits FINAL/
