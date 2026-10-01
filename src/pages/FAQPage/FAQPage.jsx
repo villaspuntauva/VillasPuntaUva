@@ -43,6 +43,10 @@ const faqSectionsEn = [
         question: 'Is there parking available? Do I need a 4x4 vehicle? Can I get there without a car?',
         answer: 'We have free private parking located inside a gated property. We are located just off the main road and a 4x4 is not necessary — you can move around easily by bike, ATV, motorcycle, and more.',
       },
+      {
+        question: 'Do you have electric car charging?',
+        answer: 'Yes. There is a public charging spot conveniently located a 2–5 minute walk from the villas. On-site charging at the property is also available for $10 USD per day, charged for the full length of your stay.',
+      },
     ],
   },
   {
@@ -148,6 +152,10 @@ const faqSectionsEs = [
       {
         question: '¿Hay estacionamiento disponible? ¿Necesito un vehículo 4x4? ¿Puedo llegar sin carro?',
         answer: 'Contamos con estacionamiento privado y gratuito dentro de una propiedad cerrada. Estamos ubicados a poca distancia de la carretera principal y no se necesita un 4x4 — puede moverse fácilmente en bicicleta, ATV, motocicleta y más.',
+      },
+      {
+        question: '¿Tienen carga para carros eléctricos?',
+        answer: 'Sí. Hay un punto de carga público convenientemente ubicado a 2–5 minutos caminando de las villas. También ofrecemos carga dentro de la propiedad por $10 USD por día, cobrado por toda la duración de su estadía.',
       },
     ],
   },

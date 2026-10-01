@@ -7,6 +7,7 @@ import Experience from '../../sections/Experience/Experience'
 import Explore from '../../sections/Explore/Explore'
 import AboutUs from '../../sections/AboutUs/AboutUs'
 import Reviews from '../../sections/Reviews/Reviews'
+import TrustBadges from '../../sections/TrustBadges/TrustBadges'
 import SEO from '../../components/SEO/SEO'
 import { useLanguage } from '../../i18n/LanguageContext'
 
@@ -60,6 +61,7 @@ export default function HomePage() {
       <Experience />
       <Explore />
       <AboutUs />
+      <TrustBadges />
       <Reviews />
     </>
   )
