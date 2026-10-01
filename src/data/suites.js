@@ -1,4 +1,4 @@
-import airbnbAvailability from './airbnbAvailability.json'
+import { getReservedRanges } from './availability'
 
 const makeGallery = (folder, count, skipped = []) =>
   Array.from({ length: count }, (_, index) => index + 1)
@@ -881,7 +881,7 @@ function parseIsoDate(value) {
 export const isSuiteAvailable = (slug, arrival, departure) => {
   if (!arrival || !departure) return true
 
-  const ranges = airbnbAvailability[slug] ?? []
+  const ranges = getReservedRanges(slug)
 
   return !ranges.some((range) => {
     const rangeStart = parseIsoDate(range.start)

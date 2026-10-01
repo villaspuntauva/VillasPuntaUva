@@ -4,6 +4,7 @@ import { IoBedOutline, IoPeopleOutline } from 'react-icons/io5'
 import { LuBath } from 'react-icons/lu'
 import BookingWidget from '../../sections/BookingWidget/BookingWidget'
 import { findNearbyAvailableStay, getLocalizedSuites, getLowestNightlyRate, isSuiteAvailable } from '../../data/suites'
+import { useAvailability } from '../../data/availability'
 import styles from './SuitesPage.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
 import SEO from '../../components/SEO/SEO'
@@ -136,6 +137,7 @@ function SuiteListingCard({ suite, dimmed, searchParams, stayBadge }) {
 
 export default function SuitesPage() {
   const { language, t, localizePath } = useLanguage()
+  const availability = useAvailability()
   const seo = seoText[language]
   const localizedSuites = getLocalizedSuites(language)
   const navigate = useNavigate()
@@ -165,7 +167,7 @@ export default function SuitesPage() {
   const conflictSuites = useMemo(() => {
     if (!appliedStay) return []
     return guestFilteredSuites.filter((suite) => !isSuiteAvailable(suite.slug, appliedStay.arrival, appliedStay.departure))
-  }, [guestFilteredSuites, appliedStay])
+  }, [guestFilteredSuites, appliedStay, availability])
 
   const similarDateSuites = useMemo(() => {
     if (!appliedStay) return []
@@ -175,7 +177,7 @@ export default function SuitesPage() {
       .filter((suite) => !oneNight || NO_MINIMUM_SLUGS.includes(suite.slug))
       .map((suite) => ({ suite, stay: findNearbyAvailableStay(suite.slug, appliedStay.arrival, appliedStay.departure) }))
       .filter(({ stay }) => stay)
-  }, [conflictSuites, appliedStay])
+  }, [conflictSuites, appliedStay, availability])
 
   const unavailableSuites = conflictSuites.filter(
     (suite) => !similarDateSuites.some((item) => item.suite.id === suite.id),
@@ -191,7 +193,7 @@ export default function SuitesPage() {
   const filteredSuites = useMemo(() => {
     if (!appliedStay) return guestFilteredSuites
     return guestFilteredSuites.filter((suite) => isSuiteAvailable(suite.slug, appliedStay.arrival, appliedStay.departure))
-  }, [guestFilteredSuites, appliedStay])
+  }, [guestFilteredSuites, appliedStay, availability])
 
   const oneNightStay = useMemo(() => {
     if (!appliedStay) return false

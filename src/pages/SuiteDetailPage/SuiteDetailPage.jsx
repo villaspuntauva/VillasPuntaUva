@@ -33,7 +33,7 @@ import {
   EXTRA_GUEST_NIGHTLY_FEE,
   PET_NIGHTLY_FEE,
 } from '../../data/suites'
-import airbnbAvailability from '../../data/airbnbAvailability.json'
+import { getReservedRanges, useAvailability } from '../../data/availability'
 import BookingModal from '../../components/BookingModal/BookingModal'
 import GuestPicker from '../../components/GuestPicker/GuestPicker'
 import DateRangePicker from '../../components/DateRangePicker/DateRangePicker'
@@ -87,7 +87,7 @@ function parseIsoDate(value) {
 }
 
 function getBlockedRanges(slug) {
-  const ranges = airbnbAvailability[slug] ?? []
+  const ranges = getReservedRanges(slug)
   // Airbnb's DTEND is the checkout day, which is bookable again as a new arrival,
   // so the excluded range only covers through the night before checkout.
   return ranges.map((range) => ({
@@ -455,7 +455,8 @@ function BookingPanel({ suite }) {
   const petCount = Number(pets) || 0
   const hasSearchValue = Boolean(arrival || departure || guestCount !== 2 || kidsUnder5 || pets)
   const minNights = suite.minNights ?? 1
-  const blockedRanges = useMemo(() => getBlockedRanges(suite.slug), [suite.slug])
+  const availability = useAvailability()
+  const blockedRanges = useMemo(() => getBlockedRanges(suite.slug), [suite.slug, availability])
   const arrivalExcludedRanges = useMemo(
     () => [...blockedRanges, ...getInsufficientRunwayRanges(blockedRanges, minNights)],
     [blockedRanges, minNights],
@@ -488,7 +489,7 @@ function BookingPanel({ suite }) {
       return `${suite.name}: ${t('suites.sleeps', { count: suite.maxGuests ?? suite.sleeps })}.`
     }
     return ''
-  }, [arrival, departure, guestCount, suite, minNights])
+  }, [arrival, departure, guestCount, suite, minNights, availability])
   const visibleEstimate = error ? null : estimate
 
   const updateValue = (updates) => {

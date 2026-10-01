@@ -1,60 +1,17 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+import { envVarName, fetchIcalRanges, getEnvConfig } from '../lib/airbnbIcal.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const CONFIG_PATH = path.join(__dirname, '..', 'airbnb-ical.config.json')
 const OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'airbnbAvailability.json')
 
-// Known suite slugs, checked against AIRBNB_ICAL_<SLUG> env vars when no local
-// config file is present (e.g. in CI, where the gitignored config isn't checked out).
-const KNOWN_SLUGS = [
-  'villa-mariposa',
-  'villa-tucan',
-  'villa-presidente',
-  'villa-colibri',
-  'villa-angel',
-  'villa-cacha',
-  'carey-house',
-]
-
-function envVarName(slug) {
-  return `AIRBNB_ICAL_${slug.toUpperCase().replace(/-/g, '_')}`
-}
-
+// Falls back to AIRBNB_ICAL_<SLUG> env vars when no local config file is
+// present (e.g. in CI, where the gitignored config isn't checked out).
 async function loadConfig() {
   const fileConfig = await readJson(CONFIG_PATH, null)
-  if (fileConfig) return fileConfig
-
-  const envConfig = {}
-  for (const slug of KNOWN_SLUGS) {
-    const value = process.env[envVarName(slug)]
-    if (value) envConfig[slug] = value
-  }
-  return envConfig
-}
-
-function toIsoDate(icalDate) {
-  // icalDate is YYYYMMDD
-  return `${icalDate.slice(0, 4)}-${icalDate.slice(4, 6)}-${icalDate.slice(6, 8)}`
-}
-
-function parseIcal(text) {
-  const ranges = []
-  const events = text.split('BEGIN:VEVENT').slice(1)
-
-  for (const event of events) {
-    const startMatch = event.match(/DTSTART;VALUE=DATE:(\d{8})/)
-    const endMatch = event.match(/DTEND;VALUE=DATE:(\d{8})/)
-    if (!startMatch || !endMatch) continue
-
-    ranges.push({
-      start: toIsoDate(startMatch[1]),
-      end: toIsoDate(endMatch[1]),
-    })
-  }
-
-  return ranges
+  return fileConfig ?? getEnvConfig()
 }
 
 async function readJson(filePath, fallback) {
@@ -81,11 +38,7 @@ async function main() {
 
   for (const [slug, url] of Object.entries(config)) {
     try {
-      const response = await fetch(url)
-      if (!response.ok) throw new Error(`HTTP ${response.status}`)
-
-      const text = await response.text()
-      const ranges = parseIcal(text)
+      const ranges = await fetchIcalRanges(url)
       output[slug] = ranges
       console.log(`${slug}: synced ${ranges.length} reserved date range(s)`)
     } catch (error) {
