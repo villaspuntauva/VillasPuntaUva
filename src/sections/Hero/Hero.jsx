@@ -12,10 +12,12 @@ export default function Hero() {
           alt=""
           className={styles.icon}
         />
-        <h1 className={styles.title}>Villas Punta Uva</h1>
-        <p className={styles.subtitle}>
-          {t('home.tagline')}
-        </p>
+        {/* The tagline sits inside the h1 so the main heading carries the
+            location keywords, while still looking like a separate line. */}
+        <h1 className={styles.heading}>
+          <span className={styles.title}>Villas Punta Uva</span>
+          <span className={styles.subtitle}>{t('home.tagline')}</span>
+        </h1>
       </div>
     </section>
   )

@@ -58,6 +58,8 @@ export default function SEO({ title, description, path = '/', image = DEFAULT_OG
     upsertMeta('property', 'og:url', canonicalUrl)
     upsertMeta('property', 'og:image', image)
     upsertMeta('property', 'og:site_name', SITE_NAME)
+    upsertMeta('property', 'og:locale', language === 'es' ? 'es_CR' : 'en_US')
+    upsertMeta('property', 'og:locale:alternate', language === 'es' ? 'en_US' : 'es_CR')
 
     upsertMeta('name', 'twitter:card', 'summary_large_image')
     upsertMeta('name', 'twitter:title', title)

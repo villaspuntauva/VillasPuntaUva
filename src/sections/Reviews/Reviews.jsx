@@ -3,6 +3,7 @@ import { FaStar } from 'react-icons/fa'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { GoVerified } from 'react-icons/go'
 import { reviews } from '../../data/reviews'
+import CarouselPause from '../../components/CarouselPause/CarouselPause'
 import styles from './Reviews.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
 
@@ -56,11 +57,14 @@ function ReviewCard({ review }) {
       <p className={styles.text}>
         {displayText}{isLong && !expanded && '...'}
       </p>
+      {language === 'es' && <p className={styles.translated}>{t('home.translated')}</p>}
 
       {isLong && (
         <button
+          type="button"
           className={styles.showMore}
           onClick={() => setExpanded(!expanded)}
+          aria-expanded={expanded}
         >
           {expanded ? t('common.showLess') : t('common.showMore')}
         </button>
@@ -75,6 +79,17 @@ export default function Reviews() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [visibleCount, setVisibleCount] = useState(3)
   const [isInView, setIsInView] = useState(false)
+  const [userPaused, setUserPaused] = useState(false)
+  const [hoverPaused, setHoverPaused] = useState(false)
+
+  const pauseHandlers = {
+    onMouseEnter: () => setHoverPaused(true),
+    onMouseLeave: () => setHoverPaused(false),
+    onFocus: () => setHoverPaused(true),
+    onBlur: (event) => {
+      if (!event.currentTarget.contains(event.relatedTarget)) setHoverPaused(false)
+    },
+  }
 
   const maxIndex = Math.max(0, reviews.length - visibleCount)
 
@@ -111,7 +126,7 @@ export default function Reviews() {
   }, [])
 
   useEffect(() => {
-    if (!isInView || maxIndex === 0) return undefined
+    if (!isInView || userPaused || hoverPaused || maxIndex === 0) return undefined
 
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     if (mediaQuery.matches) return undefined
@@ -121,7 +136,7 @@ export default function Reviews() {
     }, 4200)
 
     return () => window.clearInterval(interval)
-  }, [isInView, maxIndex])
+  }, [isInView, userPaused, hoverPaused, maxIndex])
 
   const scrollTo = (index) => {
     setActiveIndex(Math.max(0, Math.min(index, maxIndex)))
@@ -136,8 +151,9 @@ export default function Reviews() {
           {t('home.reviewsText')}
         </p>
 
-        <div className={styles.carouselWrap}>
+        <div className={styles.carouselWrap} {...pauseHandlers}>
           <button
+            type="button"
             className={`${styles.arrow} ${styles.arrowLeft}`}
             onClick={() => scrollTo(activeIndex - 1)}
             disabled={activeIndex === 0}
@@ -166,6 +182,7 @@ export default function Reviews() {
           </div>
 
           <button
+            type="button"
             className={`${styles.arrow} ${styles.arrowRight}`}
             onClick={() => scrollTo(activeIndex + 1)}
             disabled={activeIndex >= maxIndex}
@@ -174,6 +191,11 @@ export default function Reviews() {
             <HiChevronRight size={28} />
           </button>
         </div>
+        {maxIndex > 0 && (
+          <div className={styles.controls}>
+            <CarouselPause paused={userPaused} onToggle={() => setUserPaused((current) => !current)} />
+          </div>
+        )}
       </div>
     </section>
   )

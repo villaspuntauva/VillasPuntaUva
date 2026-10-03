@@ -1,0 +1,29 @@
+/* Matches the navbar's EN/ES language switch. */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--color-primary);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-primary-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+}
+
+.switch button {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+
+.switch .active {
+  background: var(--color-primary);
+  color: var(--color-white);
+}

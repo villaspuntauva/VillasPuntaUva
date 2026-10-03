@@ -97,7 +97,8 @@
 .navLink.active {
   opacity: 1;
   font-weight: 800;
-  color: var(--color-primary);
+  /* Light accent over the hero photo; the solid navbar uses the dark teal. */
+  color: var(--color-secondary);
 }
 
 .solid .navLink.active {
@@ -136,7 +137,8 @@
               visibility var(--transition-speed) ease;
 }
 
-.dropdown.dropdownVisible {
+.dropdown.dropdownVisible,
+.dropdownWrap:focus-within .dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -220,13 +222,18 @@
   background: var(--color-white);
   z-index: 1002;
   transform: translateX(100%);
-  transition: transform var(--transition-speed) ease;
+  /* visibility keeps the closed drawer's links out of the Tab order; it
+     flips only after the slide-out finishes. */
+  visibility: hidden;
+  transition: transform var(--transition-speed) ease, visibility 0s linear var(--transition-speed);
   padding: 24px;
   overflow-y: auto;
 }
 
 .drawer.drawerOpen {
   transform: translateX(0);
+  visibility: visible;
+  transition: transform var(--transition-speed) ease;
 }
 
 .closeBtn {

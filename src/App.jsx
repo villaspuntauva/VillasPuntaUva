@@ -19,6 +19,7 @@ const PuertoViejoPage = lazy(() => import('./pages/PuertoViejoPage/PuertoViejoPa
 const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'))
 const FAQPage = lazy(() => import('./pages/FAQPage/FAQPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'))
+const LegalPage = lazy(() => import('./pages/LegalPage/LegalPage'))
 
 // Each route is also registered under an /es prefix, so the Spanish version
 // of every page has its own crawlable, indexable URL (see LanguageContext).
@@ -32,6 +33,10 @@ const routes = [
   { path: '/explore', element: <ExplorePage /> },
   { path: '/contact', element: <ContactPage /> },
   { path: '/faq', element: <FAQPage /> },
+  { path: '/privacy', element: <LegalPage key="privacy" page="privacy" /> },
+  { path: '/terms', element: <LegalPage key="terms" page="terms" /> },
+  { path: '/refunds', element: <LegalPage key="refunds" page="refunds" /> },
+  { path: '/cookies', element: <LegalPage key="cookies" page="cookies" /> },
 ]
 
 export default function App() {

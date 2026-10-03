@@ -1,0 +1,16 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(30, 41, 59, 0.25);
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-dark);
+  transition: background-color var(--transition-speed) ease;
+}
+
+.button:hover {
+  background: var(--color-bg-blue);
+}

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { getLocalizedSuites } from '../../data/suites'
 import SuiteCard from '../../components/SuiteCard/SuiteCard'
+import CarouselPause from '../../components/CarouselPause/CarouselPause'
 import styles from './SuitesGallery.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
 
@@ -13,6 +14,17 @@ export default function SuitesGallery() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [visibleCount, setVisibleCount] = useState(4)
   const [isInView, setIsInView] = useState(false)
+  const [userPaused, setUserPaused] = useState(false)
+  const [hoverPaused, setHoverPaused] = useState(false)
+
+  const pauseHandlers = {
+    onMouseEnter: () => setHoverPaused(true),
+    onMouseLeave: () => setHoverPaused(false),
+    onFocus: () => setHoverPaused(true),
+    onBlur: (event) => {
+      if (!event.currentTarget.contains(event.relatedTarget)) setHoverPaused(false)
+    },
+  }
 
   const maxIndex = Math.max(0, suites.length - visibleCount)
 
@@ -50,7 +62,7 @@ export default function SuitesGallery() {
   }, [])
 
   useEffect(() => {
-    if (!isInView || maxIndex === 0) return undefined
+    if (!isInView || userPaused || hoverPaused || maxIndex === 0) return undefined
 
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     if (mediaQuery.matches) return undefined
@@ -60,7 +72,7 @@ export default function SuitesGallery() {
     }, 3600)
 
     return () => window.clearInterval(interval)
-  }, [isInView, maxIndex])
+  }, [isInView, userPaused, hoverPaused, maxIndex])
 
   const scrollTo = (index) => {
     const clamped = Math.max(0, Math.min(index, maxIndex))
@@ -85,8 +97,9 @@ export default function SuitesGallery() {
         </p>
       </div>
 
-      <div className={styles.carouselWrap}>
+      <div className={styles.carouselWrap} {...pauseHandlers}>
         <button
+          type="button"
           className={`${styles.arrow} ${styles.arrowLeft}`}
           onClick={() => scrollTo(activeIndex - 1)}
           disabled={activeIndex === 0}
@@ -124,6 +137,7 @@ export default function SuitesGallery() {
         </div>
 
         <button
+          type="button"
           className={`${styles.arrow} ${styles.arrowRight}`}
           onClick={() => scrollTo(activeIndex + 1)}
           disabled={activeIndex >= maxIndex}
@@ -134,12 +148,17 @@ export default function SuitesGallery() {
       </div>
 
       <div className={styles.dots}>
+        {maxIndex > 0 && (
+          <CarouselPause paused={userPaused} onToggle={() => setUserPaused((current) => !current)} />
+        )}
         {Array.from({ length: maxIndex + 1 }, (_, i) => (
           <button
             key={i}
+            type="button"
             className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ''}`}
             onClick={() => scrollTo(i)}
-            aria-label={`${t('common.next')} ${i + 1}`}
+            aria-label={t('common.goToSlide', { number: i + 1 })}
+            aria-current={i === activeIndex}
           />
         ))}
       </div>

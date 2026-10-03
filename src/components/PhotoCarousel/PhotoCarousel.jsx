@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import styles from './PhotoCarousel.module.css'
+import CarouselPause from '../CarouselPause/CarouselPause'
 import { useLanguage } from '../../i18n/LanguageContext'
 
 export default function PhotoCarousel({ photos, intervalMs = 2000 }) {
@@ -11,6 +12,17 @@ export default function PhotoCarousel({ photos, intervalMs = 2000 }) {
   const [visibleCount, setVisibleCount] = useState(3)
   const [isInView, setIsInView] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
+  const [userPaused, setUserPaused] = useState(false)
+  const [hoverPaused, setHoverPaused] = useState(false)
+
+  const pauseHandlers = {
+    onMouseEnter: () => setHoverPaused(true),
+    onMouseLeave: () => setHoverPaused(false),
+    onFocus: () => setHoverPaused(true),
+    onBlur: (event) => {
+      if (!event.currentTarget.contains(event.relatedTarget)) setHoverPaused(false)
+    },
+  }
   const [dragDeltaPercent, setDragDeltaPercent] = useState(0)
   const dragState = useRef(null)
 
@@ -54,7 +66,7 @@ export default function PhotoCarousel({ photos, intervalMs = 2000 }) {
   }, [])
 
   useEffect(() => {
-    if (!isInView || isPaused || maxIndex === 0) return undefined
+    if (!isInView || isPaused || userPaused || hoverPaused || maxIndex === 0) return undefined
 
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     if (mediaQuery.matches) return undefined
@@ -64,7 +76,7 @@ export default function PhotoCarousel({ photos, intervalMs = 2000 }) {
     }, intervalMs)
 
     return () => window.clearInterval(interval)
-  }, [isInView, isPaused, maxIndex, intervalMs])
+  }, [isInView, isPaused, userPaused, hoverPaused, maxIndex, intervalMs])
 
   const scrollTo = (index) => {
     if (index < 0) setActiveIndex(maxIndex)
@@ -98,7 +110,7 @@ export default function PhotoCarousel({ photos, intervalMs = 2000 }) {
   }, [dragDeltaPercent, activeIndex, maxIndex])
 
   return (
-    <div ref={sectionRef} className={styles.carouselWrap}>
+    <div ref={sectionRef} className={styles.carouselWrap} {...pauseHandlers}>
       <button
         type="button"
         className={`${styles.arrow} ${styles.arrowLeft}`}
@@ -154,6 +166,7 @@ export default function PhotoCarousel({ photos, intervalMs = 2000 }) {
 
       {maxIndex > 0 && (
         <div className={styles.dots}>
+          <CarouselPause paused={userPaused} onToggle={() => setUserPaused((current) => !current)} />
           {Array.from({ length: dotCount }, (_, dot) => {
             const targetIndex = Math.round((dot / (dotCount - 1)) * maxIndex)
             return (

@@ -4,6 +4,9 @@
     { "source": "/es/attractions", "destination": "/es/explore", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    {
+      "source": "/((?:es/?)?|(?:es/)?(?:suites(?:/(?:villa-mariposa|villa-tucan|villa-presidente|villa-colibri|villa-angel|villa-cacha|carey-house))?|location|puerto-viejo-costa-rica|about|explore|contact|faq|privacy|terms|refunds|cookies)/?)",
+      "destination": "/index.html"
+    }
   ]
 }

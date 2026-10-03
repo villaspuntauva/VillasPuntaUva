@@ -63,10 +63,16 @@
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-  max-width: 900px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1080px;
   margin: 0 auto;
+}
+
+@media (max-width: 1000px) and (min-width: 769px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .card {

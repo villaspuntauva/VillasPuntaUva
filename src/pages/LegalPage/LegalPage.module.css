@@ -1,0 +1,95 @@
+.hero {
+  background-color: var(--color-dark);
+  padding: calc(var(--nav-height) + 56px) 24px 56px;
+}
+
+.heroContent {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heroTitle {
+  font-size: 2.75rem;
+  color: var(--color-white);
+  line-height: 1.1;
+}
+
+.updated {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+.body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+  color: var(--color-text);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.intro {
+  font-size: 1.15rem;
+  color: var(--color-dark);
+  margin-bottom: 40px;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.section h2,
+.related h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.section p + p,
+.section ul + p,
+.section p + ul {
+  margin-top: 12px;
+}
+
+.section ul {
+  list-style: disc;
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.related {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid #d6d3d1;
+}
+
+.related ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+}
+
+.related a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.related a:hover {
+  text-decoration-thickness: 2px;
+}
+
+@media (max-width: 640px) {
+  .heroTitle {
+    font-size: 2.1rem;
+  }
+
+  .body {
+    font-size: 1rem;
+  }
+}

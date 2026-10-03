@@ -5,6 +5,8 @@ import { useScrollPosition } from '../../hooks/useScrollPosition'
 import { getLocalizedSuites } from '../../data/suites'
 import { puertoViejoContent } from '../../data/puertoViejo'
 import BookingModal from '../BookingModal/BookingModal'
+import CurrencySwitch from '../CurrencySwitch/CurrencySwitch'
+import { useDialogFocus } from '../../hooks/useDialogFocus'
 import { useLanguage } from '../../i18n/LanguageContext'
 import styles from './Navbar.module.css'
 
@@ -16,6 +18,7 @@ export default function Navbar() {
   const location = useLocation()
   const { language, setLanguage, t, localizePath } = useLanguage()
   const localizedSuites = getLocalizedSuites(language)
+  const drawerRef = useDialogFocus(mobileOpen, () => setMobileOpen(false))
 
   const isHome = location.pathname === '/' || location.pathname === '/es'
   const isScrolled = scrollY > 80
@@ -129,7 +132,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <nav className={styles.desktopNav}>
+          <nav className={styles.desktopNav} aria-label={t('nav.main')}>
             {navLinks.map((link) =>
               link.hasDropdown ? (
                 <div
@@ -180,9 +183,11 @@ export default function Navbar() {
           </div>
 
           <button
+            type="button"
             className={styles.hamburger}
             onClick={() => setMobileOpen(true)}
             aria-label={t('nav.open')}
+            aria-expanded={mobileOpen}
           >
             <HiMenu size={28} />
           </button>
@@ -192,15 +197,24 @@ export default function Navbar() {
       {mobileOpen && (
         <div className={styles.overlay} onClick={() => setMobileOpen(false)} />
       )}
-      <div className={`${styles.drawer} ${mobileOpen ? styles.drawerOpen : ''}`}>
+      <div
+        ref={drawerRef}
+        className={`${styles.drawer} ${mobileOpen ? styles.drawerOpen : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('nav.menu')}
+        aria-hidden={!mobileOpen}
+        tabIndex={-1}
+      >
         <button
+          type="button"
           className={styles.closeBtn}
           onClick={() => setMobileOpen(false)}
           aria-label={t('nav.close')}
         >
           <HiX size={28} />
         </button>
-        <nav className={styles.drawerNav}>
+        <nav className={styles.drawerNav} aria-label={t('nav.main')}>
           {navLinks.map((link) => (
             <div key={link.to}>
               <Link
@@ -226,6 +240,7 @@ export default function Navbar() {
             </div>
           ))}
           <LanguageSwitch language={language} setLanguage={setLanguage} t={t} className={styles.drawerLanguage} />
+          <CurrencySwitch className={styles.drawerLanguage} />
           <button type="button" className={styles.bookBtn} onClick={openBookingModal}>
             {t('nav.book')}
           </button>
@@ -239,7 +254,7 @@ export default function Navbar() {
 
 function LanguageSwitch({ language, setLanguage, t, className = '' }) {
   return (
-    <div className={`${styles.languageSwitch} ${className}`} aria-label={t('nav.language')}>
+    <div className={`${styles.languageSwitch} ${className}`} role="group" aria-label={t('nav.language')}>
       {['en', 'es'].map((option) => (
         <button
           key={option}

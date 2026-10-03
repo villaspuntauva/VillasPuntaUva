@@ -1,4 +1,6 @@
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi'
+import { FaWhatsapp } from 'react-icons/fa'
+import { business } from '../../data/business'
 import styles from './ContactPage.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
 import SEO from '../../components/SEO/SEO'
@@ -45,21 +47,28 @@ export default function ContactPage() {
             <div className={styles.iconCircle}>
               <HiPhone size={28} />
             </div>
-            <h3 className={styles.cardLabel}>{t('pages.phone')}</h3>
+            <h2 className={styles.cardLabel}>{t('pages.phone')}</h2>
             <p className={styles.cardDetail}>+506 6145 9916</p>
+          </a>
+          <a href={business.whatsappHref} target="_blank" rel="noopener noreferrer" className={styles.card}>
+            <div className={styles.iconCircle}>
+              <FaWhatsapp size={28} />
+            </div>
+            <h2 className={styles.cardLabel}>WhatsApp</h2>
+            <p className={styles.cardDetail}>{business.phone}</p>
           </a>
           <a href="mailto:villaspuntauva@gmail.com" className={styles.card}>
             <div className={styles.iconCircle}>
               <HiMail size={28} />
             </div>
-            <h3 className={styles.cardLabel}>{t('pages.email')}</h3>
+            <h2 className={styles.cardLabel}>{t('pages.email')}</h2>
             <p className={styles.cardDetail}>villaspuntauva@gmail.com</p>
           </a>
           <a href={GOOGLE_MAPS_URL} target="_blank" rel="noreferrer" className={styles.card}>
             <div className={styles.iconCircle}>
               <HiLocationMarker size={28} />
             </div>
-            <h3 className={styles.cardLabel}>{t('pages.location')}</h3>
+            <h2 className={styles.cardLabel}>{t('pages.location')}</h2>
             <p className={styles.cardDetail}>Punta Uva, Puerto Viejo, Limón, Costa Rica</p>
           </a>
         </div>

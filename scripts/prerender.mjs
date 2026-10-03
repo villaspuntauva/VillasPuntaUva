@@ -17,7 +17,8 @@
 //
 // Routes mirror src/App.jsx's `routes` array. Suite slugs mirror
 // KNOWN_SLUGS in scripts/sync-availability.mjs. If a villa or a top-level
-// page is ever added or removed, update this list too.
+// page is ever added or removed, update this list too — and the rewrite
+// pattern in vercel.json, or the new URL will return a 404.
 
 import { preview } from 'vite'
 import { chromium } from 'playwright'
@@ -29,7 +30,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.join(__dirname, '..')
 const DIST = path.join(ROOT, 'dist')
 
-const BASE_PATHS = ['/', '/suites', '/location', '/puerto-viejo-costa-rica', '/about', '/explore', '/contact', '/faq']
+const BASE_PATHS = ['/', '/suites', '/location', '/puerto-viejo-costa-rica', '/about', '/explore', '/contact', '/faq', '/privacy', '/terms', '/refunds', '/cookies']
 
 const SUITE_SLUGS = [
   'villa-mariposa',

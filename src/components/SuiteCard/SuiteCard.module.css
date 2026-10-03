@@ -73,7 +73,8 @@
   transition: opacity 0.4s ease;
 }
 
-.card:hover .back {
+.card:hover .back,
+.card:focus-within .back {
   opacity: 1;
 }
 

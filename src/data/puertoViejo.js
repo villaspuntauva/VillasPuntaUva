@@ -5,14 +5,15 @@
 // placeholder; paths under /images/puerto-viejo/ are the final photos, and
 // anything else is a stand-in from the existing library that truthfully
 // shows what the caption says. See docs/puerto-viejo-photo-guide.md for the
-// planned filename of each slot.
+// planned filename of each slot. Never fill a slot with third-party/stock
+// photos (the old /images/explore/ stand-ins were removed for that reason).
 
 export const images = {
   hero: '/images/beach/beach-8.webp',
-  culture: '/images/explore/activity-2.webp',
-  cultureDetail1: '/images/explore/night-3.webp',
-  cultureDetail2: '/images/explore/cuisine.webp',
-  food: '/images/explore/chocolate-1.webp',
+  culture: null,
+  cultureDetail1: null,
+  cultureDetail2: null,
+  food: null,
   fruits: {
     cacao: '/images/puerto-viejo/fruits/cacao-puerto-viejo-costa-rica.webp',
     rambutan: '/images/puerto-viejo/fruits/rambutan-puerto-viejo-costa-rica.webp',
@@ -40,9 +41,9 @@ export const images = {
     puntaUva: '/images/beach/beach-5.webp',
     manzanillo: null,
   },
-  jungle: '/images/explore/nature-1.webp',
+  jungle: '/images/beach/beach-13.webp',
   wildlife: {
-    sloths: '/images/explore/wildlife.webp',
+    sloths: null,
     howlers: null,
     toucans: null,
     frogs: null,
@@ -55,9 +56,9 @@ export const images = {
 
 const en = {
   seo: {
-    title: 'Discover Puerto Viejo, Costa Rica | Culture, Food, Beaches & Wildlife',
+    title: 'Puerto Viejo, Costa Rica Guide: Culture, Food & Beaches',
     description:
-      "A local's guide to Puerto Viejo de Talamanca on Costa Rica's Caribbean coast: Afro-Caribbean culture, food and tropical fruits, beaches from Playa Negra to Punta Uva, jungle wildlife, and what longer stays are like.",
+      "A local's guide to Puerto Viejo on Costa Rica's Caribbean coast: Afro-Caribbean culture, food, beaches from Playa Negra to Punta Uva, and jungle wildlife.",
   },
   hero: {
     eyebrow: 'Puerto Viejo de Talamanca, Costa Rica',
@@ -151,7 +152,7 @@ const en = {
     eyebrow: 'Chapter 04 — Jungle & Wildlife',
     title: 'Where the Jungle Meets the Sea',
     text: 'One of the things that makes the Caribbean coast different is how close nature is to everyday life. Around Puerto Viejo and Punta Uva, the jungle surrounds the roads, homes and beaches, and wildlife is often found surprisingly close to town — a sloth above the bike path, howler monkeys as your alarm clock, a frog the size of a fingernail on the porch.',
-    jungleAlt: 'Waterfall in the tropical rainforest of the Talamanca region near Puerto Viejo',
+    jungleAlt: 'Aerial view of jungle growing down to the sea at Punta Uva',
     whoTitle: 'Who lives here?',
     animals: [
       { key: 'sloths', name: 'Sloths', text: "Two- and three-toed sloths are common in the trees along the coast road. Look up — they're easy to miss." },
@@ -194,9 +195,9 @@ const en = {
 
 const es = {
   seo: {
-    title: 'Descubra Puerto Viejo, Costa Rica | Cultura, comida, playas y naturaleza',
+    title: 'Guía de Puerto Viejo, Costa Rica: cultura, comida y playas',
     description:
-      'Una guía local de Puerto Viejo de Talamanca en el Caribe de Costa Rica: cultura afrocaribeña, comida y frutas tropicales, playas de Playa Negra a Punta Uva, vida silvestre y cómo es quedarse por más tiempo.',
+      'Guía local de Puerto Viejo en el Caribe de Costa Rica: cultura afrocaribeña, comida, playas de Playa Negra a Punta Uva y vida silvestre en la selva.',
   },
   hero: {
     eyebrow: 'Puerto Viejo de Talamanca, Costa Rica',
@@ -290,7 +291,7 @@ const es = {
     eyebrow: 'Capítulo 04 — Selva y vida silvestre',
     title: 'Donde la selva se encuentra con el mar',
     text: 'Una de las cosas que hace diferente al Caribe es lo cerca que está la naturaleza de la vida diaria. Alrededor de Puerto Viejo y Punta Uva, la selva rodea las calles, las casas y las playas, y la vida silvestre aparece sorprendentemente cerca del pueblo: un perezoso sobre la ciclovía, monos congo como despertador, una rana del tamaño de una uña en el corredor.',
-    jungleAlt: 'Catarata en el bosque tropical de la región de Talamanca cerca de Puerto Viejo',
+    jungleAlt: 'Vista aérea de la selva que llega hasta el mar en Punta Uva',
     whoTitle: '¿Quién vive aquí?',
     animals: [
       { key: 'sloths', name: 'Perezosos', text: 'Los perezosos de dos y tres dedos son comunes en los árboles junto a la carretera costera. Mire hacia arriba: es fácil no verlos.' },

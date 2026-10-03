@@ -3,6 +3,8 @@ import { LuChevronDown } from 'react-icons/lu'
 import styles from './FAQPage.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
 import SEO from '../../components/SEO/SEO'
+import { formatBoth } from '../../utils/currency'
+import { EXTRA_GUEST_NIGHTLY_FEE, PET_NIGHTLY_FEE } from '../../data/suites'
 
 const seoText = {
   en: {
@@ -45,7 +47,7 @@ const faqSectionsEn = [
       },
       {
         question: 'Do you have electric car charging?',
-        answer: 'Yes. There is a public charging spot conveniently located a 2–5 minute walk from the villas. On-site charging at the property is also available for $10 USD per day, charged for the full length of your stay.',
+        answer: 'Yes. There is a public charging spot conveniently located a 2–5 minute walk from the villas. On-site charging at the property is also available for US$10 per day, charged for the full length of your stay.',
       },
     ],
   },
@@ -62,11 +64,11 @@ const faqSectionsEn = [
       },
       {
         question: 'Is there a fee for extra guests?',
-        answer: 'Yes, ₡6,750 per night for each guest beyond a villa’s base capacity. An extra beach towel and bath towel are provided for that additional guest.',
+        answer: `Yes, ${formatBoth(EXTRA_GUEST_NIGHTLY_FEE, 'en-US')} per night for each guest beyond a villa’s base capacity. An extra beach towel and bath towel are provided for that additional guest.`,
       },
       {
         question: 'Can I bring a pet?',
-        answer: 'Yes, every villa is pet-friendly. Pets are ₡4,500 per night.',
+        answer: `Yes, every villa is pet-friendly. Pets are ${formatBoth(PET_NIGHTLY_FEE, 'en-US')} per night.`,
       },
       {
         question: 'Does pricing change during the holidays?',
@@ -114,8 +116,8 @@ const faqSectionsEn = [
         answer: 'In the Caribbean, there are plenty of tours to choose from, including our favorites: ziplining, surf lessons, chocolate tours, horseback riding, bird/animal night tours, and snorkel tours.',
       },
       {
-        question: 'Is the tap water safe to drink?',
-        answer: 'Yes, it is, but we recommend drinking the filtered water we provide at our water dispenser. Not included at Villa Colibrí.',
+        question: 'Can I drink the tap water?',
+        answer: 'We recommend drinking the filtered water we provide from our water dispenser rather than tap water (the dispenser is not included at Villa Colibrí). If you have health concerns, bottled water is sold at nearby stores.',
       },
       {
         question: 'What if my question isn’t answered here?',
@@ -155,7 +157,7 @@ const faqSectionsEs = [
       },
       {
         question: '¿Tienen carga para carros eléctricos?',
-        answer: 'Sí. Hay un punto de carga público convenientemente ubicado a 2–5 minutos caminando de las villas. También ofrecemos carga dentro de la propiedad por $10 USD por día, cobrado por toda la duración de su estadía.',
+        answer: 'Sí. Hay un punto de carga público convenientemente ubicado a 2–5 minutos caminando de las villas. También ofrecemos carga dentro de la propiedad por US$10 por día, cobrado por toda la duración de su estadía.',
       },
     ],
   },
@@ -172,11 +174,11 @@ const faqSectionsEs = [
       },
       {
         question: '¿Hay un cargo por huéspedes adicionales?',
-        answer: 'Sí, ₡6 750 por noche por cada huésped adicional a la capacidad base de la villa. Se incluye una toalla de playa y una toalla de baño adicionales para ese huésped.',
+        answer: `Sí, ${formatBoth(EXTRA_GUEST_NIGHTLY_FEE, 'es-CR')} por noche por cada huésped adicional a la capacidad base de la villa. Se incluye una toalla de playa y una toalla de baño adicionales para ese huésped.`,
       },
       {
         question: '¿Puedo llevar una mascota?',
-        answer: 'Sí, todas las villas son pet-friendly. Las mascotas tienen un costo de ₡4 500 por noche.',
+        answer: `Sí, todas las villas son pet-friendly. Las mascotas tienen un costo de ${formatBoth(PET_NIGHTLY_FEE, 'es-CR')} por noche.`,
       },
       {
         question: '¿Las tarifas cambian en fechas festivas?',
@@ -224,8 +226,8 @@ const faqSectionsEs = [
         answer: 'En el Caribe hay muchos tours entre los cuales elegir, incluyendo nuestros favoritos: canopy, clases de surf, tours de chocolate, cabalgatas, tours nocturnos de aves/animales y tours de esnórquel.',
       },
       {
-        question: '¿Es segura el agua del grifo para beber?',
-        answer: 'Sí, lo es, pero recomendamos beber el agua filtrada que ofrecemos en nuestro dispensador de agua. Villa Colibrí no incluida.',
+        question: '¿Puedo tomar el agua del grifo?',
+        answer: 'Recomendamos tomar el agua filtrada de nuestro dispensador en lugar del agua del grifo (el dispensador no está incluido en Villa Colibrí). Si tiene inquietudes de salud, en las tiendas cercanas se vende agua embotellada.',
       },
       {
         question: '¿Y si mi pregunta no está aquí?',

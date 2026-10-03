@@ -36,8 +36,17 @@ async function walkIndexFiles(dir) {
   return files
 }
 
-function replaceTag(html, regex, replacement) {
-  return replacement ? html.replace(regex, replacement) : html
+// Vercel serves dist/404.html, with a real 404 status, for any URL that
+// vercel.json doesn't rewrite to the app. It's the bare SPA shell, so React
+// still renders the localized Not Found page; the homepage's canonical,
+// hreflang and schema are stripped and it's marked noindex.
+async function writeNotFoundPage(shell) {
+  const notFound = shell
+    .replace(/<link rel="(?:canonical|alternate)"[^>]*>\s*/g, '')
+    .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/g, '')
+    .replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />')
+    .replace(/<title>[\s\S]*?<\/title>/, '<title>Page Not Found | Villas Punta Uva</title>')
+  await writeFile(path.join(DIST, '404.html'), notFound)
 }
 
 async function applyOne(prerenderedFile, shell) {
@@ -54,17 +63,27 @@ async function applyOne(prerenderedFile, shell) {
     `<div id="root">${rootMatch[1]}</div>\n  </body>`,
   )
 
-  merged = replaceTag(merged, /<title>[\s\S]*?<\/title>/, snapshot.match(/<title>[\s\S]*?<\/title>/)?.[0])
-  merged = replaceTag(
-    merged,
-    /<meta name="description"[^>]*>/,
-    snapshot.match(/<meta name="description"[^>]*>/)?.[0],
-  )
-  merged = replaceTag(
-    merged,
-    /<link rel="canonical"[^>]*>/,
-    snapshot.match(/<link rel="canonical"[^>]*>/)?.[0],
-  )
+  // Every SEO tag the page sets at runtime (title, description, robots,
+  // canonical, hreflang alternates, Open Graph/Twitter tags, JSON-LD) is
+  // taken from the snapshot, and the shell's homepage copies are dropped —
+  // otherwise every route would advertise the homepage's hreflang, og:url
+  // and schema to crawlers.
+  const seoTagPatterns = [
+    /<title>[\s\S]*?<\/title>/g,
+    /<meta name="(?:description|robots|twitter:[^"]+)"[^>]*>/g,
+    /<meta property="og:[^"]+"[^>]*>/g,
+    /<link rel="(?:canonical|alternate)"[^>]*>/g,
+    /<script type="application\/ld\+json">[\s\S]*?<\/script>/g,
+  ]
+  const snapshotHead = snapshot.match(/<head>([\s\S]*?)<\/head>/)?.[1] ?? ''
+  const snapshotTags = seoTagPatterns.flatMap((pattern) => snapshotHead.match(pattern) ?? [])
+  if (snapshotTags.length > 0) {
+    for (const pattern of seoTagPatterns) merged = merged.replace(pattern, '')
+    merged = merged.replace('</head>', `    ${snapshotTags.join('\n    ')}\n  </head>`)
+  }
+
+  const snapshotLang = snapshot.match(/<html[^>]*\blang="([^"]+)"/)?.[1]
+  if (snapshotLang) merged = merged.replace(/<html([^>]*)\blang="[^"]*"/, `<html$1lang="${snapshotLang}"`)
 
   await mkdir(path.dirname(distFile), { recursive: true })
   await writeFile(distFile, merged)
@@ -72,6 +91,19 @@ async function applyOne(prerenderedFile, shell) {
 }
 
 async function main() {
+  // vite build only ever produces the one SPA entry file (dist/index.html);
+  // that's the universal shell every route's merged output is built from,
+  // since it always has today's correct asset hashes.
+  let shell
+  try {
+    shell = await readFile(SHELL_PATH, 'utf-8')
+  } catch {
+    console.warn('dist/index.html not found — did `vite build` run first? Skipping.')
+    return
+  }
+
+  await writeNotFoundPage(shell)
+
   let files
   try {
     files = await walkIndexFiles(PRERENDERED)
@@ -82,17 +114,6 @@ async function main() {
 
   if (files.length === 0) {
     console.log('prerendered/ is empty — dist/ stays as the plain SPA shell.')
-    return
-  }
-
-  // vite build only ever produces the one SPA entry file (dist/index.html);
-  // that's the universal shell every route's merged output is built from,
-  // since it always has today's correct asset hashes.
-  let shell
-  try {
-    shell = await readFile(SHELL_PATH, 'utf-8')
-  } catch {
-    console.warn('dist/index.html not found — did `vite build` run first? Skipping.')
     return
   }
 

@@ -10,9 +10,13 @@ const GOOGLE_PROFILE_URL = 'https://share.google/Xuwc9f20DwkVTeHBV'
 // Combined across all 7 Airbnb listings — update as reviews come in.
 const AIRBNB_RATING = '4.9'
 const AIRBNB_REVIEW_COUNT = 360
+// Month the rating, review count, and Superhost status were last checked on
+// Airbnb. Re-check and update all three together.
+const AIRBNB_STATS_AS_OF = new Date(Date.UTC(2026, 9, 1))
 
 export default function TrustBadges() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const asOf = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(AIRBNB_STATS_AS_OF)
 
   const cards = [
     {
@@ -35,7 +39,7 @@ export default function TrustBadges() {
         </span>
       ),
       title: t('trust.ratingTitle', { rating: AIRBNB_RATING }),
-      text: t('trust.ratingText', { count: AIRBNB_REVIEW_COUNT }),
+      text: t('trust.ratingText', { count: AIRBNB_REVIEW_COUNT, asOf }),
       cta: t('trust.ratingCta'),
     },
     {
@@ -74,7 +78,8 @@ export default function TrustBadges() {
               <p className={styles.text}>{card.text}</p>
               <span className={styles.cta}>
                 {card.cta}
-                <LuArrowUpRight size={16} />
+                <span className="srOnly"> ({t('common.newTab')})</span>
+                <LuArrowUpRight size={16} aria-hidden="true" />
               </span>
             </a>
           ))}

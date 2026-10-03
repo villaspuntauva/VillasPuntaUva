@@ -8,8 +8,8 @@ const seoText = {
     description: "Meet the family behind Villas Punta Uva — a Caribbean coast retreat built to share Costa Rica's jungle, wildlife, and beaches with guests from around the world.",
   },
   es: {
-    title: 'Sobre Nosotros | Villas Punta Uva, Un Refugio Familiar en Costa Rica',
-    description: 'Conozca a la familia detrás de Villas Punta Uva, un refugio en la costa caribeña creado para compartir la selva, la vida silvestre y las playas de Costa Rica con huéspedes de todo el mundo.',
+    title: 'Sobre Nosotros | Villas Punta Uva, Refugio Familiar en Costa Rica',
+    description: 'Conozca a la familia detrás de Villas Punta Uva, un refugio en el Caribe creado para compartir la selva, la vida silvestre y las playas de Costa Rica.',
   },
 }
 
@@ -66,7 +66,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className={styles.storyImage} aria-label="Villas Punta Uva hosts" role="img" />
+        <div className={styles.storyImage} aria-label={spanish ? 'Una mujer con sombrero lee una revista de viajes en el porche de una villa' : 'A woman in a sun hat reading a travel magazine on a villa porch'} role="img" />
       </section>
 
       <section className={styles.family}>
@@ -83,7 +83,7 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.experience}>
-        <div className={styles.experienceImage} aria-label="Villas Punta Uva hosts" role="img" />
+        <div className={styles.experienceImage} aria-label={spanish ? 'Tres personas llegan con su equipaje por el jardín tropical de las villas' : 'Three people arriving with their luggage through the villas’ tropical garden'} role="img" />
 
         <div className={styles.experienceContent}>
           <div className={styles.experienceHeader}>

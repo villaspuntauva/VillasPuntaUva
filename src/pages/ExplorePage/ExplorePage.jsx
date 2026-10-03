@@ -459,16 +459,18 @@ function ActivitySection({ section, index, language }) {
           )}
         </div>
 
-        <div className={styles.sectionGrid}>
-          <div className={styles.mediaStack}>
-            {(section.images ?? Array.from({ length: section.imageCount })).map((image, imageIndex) => (
-              <ExploreImage
-                key={imageIndex}
-                src={image}
-                label={`${localizeActivityText(section.title, language)} ${language === 'es' ? 'imagen' : 'image'} ${imageIndex + 1}`}
-              />
-            ))}
-          </div>
+        <div className={`${styles.sectionGrid} ${section.images?.length ? '' : styles.sectionGridTextOnly}`}>
+          {section.images?.length > 0 && (
+            <div className={styles.mediaStack}>
+              {section.images.map((image, imageIndex) => (
+                <ExploreImage
+                  key={imageIndex}
+                  src={image}
+                  label={`${localizeActivityText(section.title, language)} ${language === 'es' ? 'imagen' : 'image'} ${imageIndex + 1}`}
+                />
+              ))}
+            </div>
+          )}
 
           <div className={styles.items}>
             {section.items.map((item) => (
@@ -500,6 +502,8 @@ export default function ExplorePage() {
           </p>
         </div>
       </section>
+
+      <p className={styles.disclaimer}>{t('pages.exploreDisclaimer')}</p>
 
       {activitySections.map((section, index) => (
         <ActivitySection key={section.title} section={section} index={index} language={language} />

@@ -18,7 +18,7 @@ const seoText = {
   },
   es: {
     title: 'Villas Punta Uva | Villas de Lujo, Punta Uva, Costa Rica',
-    description: 'A pasos de una de las playas más hermosas de Costa Rica, Villas Punta Uva reúne a familias, amigos y parejas en un lujo relajado, rodeado de selva y aire del mar Caribe.',
+    description: 'Villas de lujo para familias, parejas y amigos en Punta Uva, Puerto Viejo, a pocos minutos caminando de una de las playas más hermosas de Costa Rica.',
   },
 }
 

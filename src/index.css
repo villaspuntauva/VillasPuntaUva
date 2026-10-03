@@ -1,16 +1,21 @@
 :root {
-  --color-primary: #5bb9d9;
-  --color-primary-dark: #49a6c5;
+  /* Darkened from #5bb9d9 / #49a6c5 so white text on buttons and teal text on
+     light backgrounds meet WCAG AA contrast (4.5:1). #ade0ed stays as the
+     light decorative accent. */
+  --color-primary: #1f6a86;
+  --color-primary-dark: #17546b;
   --color-secondary: #ade0ed;
   --color-dark: #1e293b;
   --color-text: #334155;
-  --color-text-light: #64748b;
+  --color-text-light: #56657a;
   --color-white: #ffffff;
   --color-bg-light: #f5f0eb;
   --color-bg-sand: #ece5dd;
   --color-bg-blue: #e8f0f3;
   --color-bg-taupe: #eae4dc;
   --color-bg-footer: #3d7a87;
+  /* Text-safe accent: 4.5:1+ on white and on the sand backgrounds. */
+  --color-link: #1d6a85;
 
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Jost', sans-serif;
@@ -83,4 +88,29 @@ ul {
 
 .skipLink:focus {
   top: 16px;
+}
+
+/* Visible keyboard focus everywhere (several components set outline: none
+   on their base state; this restores a ring for keyboard users only). */
+:focus-visible {
+  outline: 3px solid var(--color-primary) !important;
+  outline-offset: 2px;
+}
+
+footer :focus-visible,
+[data-dark-surface] :focus-visible {
+  outline-color: var(--color-white) !important;
+}
+
+/* Visually hidden but announced by screen readers. */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

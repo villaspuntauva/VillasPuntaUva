@@ -79,6 +79,7 @@
 
 .filterBar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
@@ -345,4 +346,10 @@
   .specs {
     grid-template-columns: 1fr;
   }
+}
+
+.filterActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }

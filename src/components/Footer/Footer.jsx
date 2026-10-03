@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom'
 import { FaInstagram, FaTiktok } from 'react-icons/fa'
 import { getLocalizedSuites } from '../../data/suites'
+import { business, isPlaceholder } from '../../data/business'
+import { legalContent, legalPages } from '../../data/legal'
 import styles from './Footer.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
 
 export default function Footer() {
   const { language, t, localizePath } = useLanguage()
   const suites = getLocalizedSuites(language)
+  const legal = legalContent[language].pages
+  const showLegalIdentity = !isPlaceholder(business.legalName) && !isPlaceholder(business.legalId)
   return (
     <footer className={styles.footer}>
       <div className={styles.topBanner}>
@@ -15,7 +19,7 @@ export default function Footer() {
             <h3 className={styles.topBannerHeading}>{t('footer.ready')}</h3>
             <p className={styles.topBannerSub}>{t('footer.text')}</p>
           </div>
-          <a href="tel:+50661459916" className={styles.topBannerPhone}>+506 6145 9916</a>
+          <a href={business.phoneHref} className={styles.topBannerPhone}>{business.phone}</a>
         </div>
       </div>
 
@@ -34,7 +38,7 @@ export default function Footer() {
 
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>{t('footer.quickLinks')}</h4>
-            <nav className={styles.links}>
+            <nav className={styles.links} aria-label={t('footer.quickLinks')}>
               <Link to={localizePath('/')}>{t('nav.home')}</Link>
               <Link to={localizePath('/suites')}>{t('nav.suites')}</Link>
               <Link to={localizePath('/location')}>{t('nav.location')}</Link>
@@ -48,7 +52,7 @@ export default function Footer() {
 
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>{t('nav.suites')}</h4>
-            <nav className={styles.links}>
+            <nav className={styles.links} aria-label={t('nav.suites')}>
               {suites.map((suite) => (
                 <Link key={suite.id} to={localizePath(`/suites/${suite.slug}`)}>{suite.name}</Link>
               ))}
@@ -60,8 +64,8 @@ export default function Footer() {
             <div className={styles.contactInfo}>
               <p>Punta Uva, Puerto Viejo</p>
               <p>Limón, Costa Rica</p>
-              <p>+506 6145 9916</p>
-              <p>villaspuntauva@gmail.com</p>
+              <p><a href={business.phoneHref}>{business.phone}</a></p>
+              <p><a href={`mailto:${business.email}`}>{business.email}</a></p>
             </div>
           </div>
 
@@ -70,7 +74,7 @@ export default function Footer() {
             <div className={styles.socials}>
               <a
                 href="https://www.instagram.com/villaspuntauva/"
-                aria-label="Instagram"
+                aria-label={`Instagram (${t('common.newTab')})`}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -78,7 +82,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://www.tiktok.com/@villaspuntauva"
-                aria-label="TikTok"
+                aria-label={`TikTok (${t('common.newTab')})`}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -90,7 +94,15 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottom}>
+        <nav className={styles.legalLinks} aria-label={t('footer.legal')}>
+          {legalPages.map((item) => (
+            <Link key={item.key} to={localizePath(item.path)}>{legal[item.key].title}</Link>
+          ))}
+        </nav>
         <p>&copy; {new Date().getFullYear()} Villas Punta Uva. {t('footer.rights')}</p>
+        {showLegalIdentity && (
+          <p>{business.legalName} · {business.legalId}</p>
+        )}
       </div>
     </footer>
   )

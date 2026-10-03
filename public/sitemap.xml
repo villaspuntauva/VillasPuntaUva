@@ -255,4 +255,68 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.villaspuntauva.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/privacy" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.villaspuntauva.com/es/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/privacy" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.villaspuntauva.com/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/terms" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.villaspuntauva.com/es/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/terms" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.villaspuntauva.com/refunds</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/refunds" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/refunds" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/refunds" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.villaspuntauva.com/es/refunds</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/refunds" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/refunds" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/refunds" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.villaspuntauva.com/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/cookies" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/cookies" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.villaspuntauva.com/es/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villaspuntauva.com/cookies" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.villaspuntauva.com/es/cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villaspuntauva.com/cookies" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

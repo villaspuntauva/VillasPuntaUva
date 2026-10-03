@@ -8,7 +8,8 @@ import { useAvailability } from '../../data/availability'
 import styles from './SuitesPage.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
 import SEO from '../../components/SEO/SEO'
-import { formatColones } from '../../utils/currency'
+import { useCurrency } from '../../i18n/CurrencyContext'
+import CurrencySwitch from '../../components/CurrencySwitch/CurrencySwitch'
 
 const seoText = {
   en: {
@@ -17,7 +18,7 @@ const seoText = {
   },
   es: {
     title: 'Villas y Tarifas | Villas Punta Uva, Puerto Viejo Costa Rica',
-    description: 'Explore 7 villas privadas en Punta Uva, Puerto Viejo — desde estudios acogedores hasta casas de 5 habitaciones. Consulte disponibilidad en tiempo real y tarifas 2026, y reserve directo.',
+    description: '7 villas privadas en Punta Uva, Puerto Viejo: desde estudios hasta casas de 5 habitaciones. Vea disponibilidad y tarifas 2026, y reserve directo.',
   },
 }
 
@@ -89,6 +90,7 @@ function formatStayRange(stay, locale) {
 
 function SuiteListingCard({ suite, dimmed, searchParams, stayBadge }) {
   const { language, locale, t, localizePath } = useLanguage()
+  const { formatPrice } = useCurrency()
   const query = searchParams?.toString()
   return (
     <Link
@@ -112,7 +114,7 @@ function SuiteListingCard({ suite, dimmed, searchParams, stayBadge }) {
             <p className={styles.cardLocation}>{suite.location}, Costa Rica</p>
           </div>
           <p className={styles.price}>
-            <span className={styles.priceMeta}>{t('common.from')}</span> {formatColones(getLowestNightlyRate(suite), locale)}
+            <span className={styles.priceMeta}>{t('common.from')}</span> {formatPrice(getLowestNightlyRate(suite))}
             <span className={styles.priceNight}>/{t('common.night')}</span>
           </p>
         </div>
@@ -300,11 +302,14 @@ export default function SuitesPage() {
                 ? t('suites.showingFor', { count: guestFilter, unit: guestFilter === 1 ? t('common.guest').toLowerCase() : t('common.guests').toLowerCase() })
                 : t('suites.showingAll')}
             </p>
-            {guestFilter && (
-              <button type="button" className={styles.clearButton} onClick={clearSearch}>
-                {t('suites.clear')}
-              </button>
-            )}
+            <div className={styles.filterActions}>
+              {guestFilter && (
+                <button type="button" className={styles.clearButton} onClick={clearSearch}>
+                  {t('suites.clear')}
+                </button>
+              )}
+              <CurrencySwitch />
+            </div>
           </div>
         )}
 

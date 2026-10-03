@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { LuMapPin } from 'react-icons/lu'
 import styles from './LocationPage.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
@@ -26,9 +27,12 @@ const CITATION_LINKS = {
 }
 
 export default function LocationPage() {
-  const { language, t } = useLanguage()
+  const { language, t, localizePath } = useLanguage()
   const seo = seoText[language]
   const videoRef = useRef(null)
+  // The Google Maps iframe sets Google cookies and sends the visitor's IP to
+  // Google, so it only loads after an explicit click (see /cookies).
+  const [mapLoaded, setMapLoaded] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
@@ -82,14 +86,27 @@ export default function LocationPage() {
 
       <section className={styles.mapSection}>
         <div className={styles.mapFrame}>
-          <iframe
-            className={styles.mapEmbed}
-            src={GOOGLE_MAPS_EMBED_URL}
-            title={t('pages.locationMapTitle')}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
+          {mapLoaded ? (
+            <iframe
+              className={styles.mapEmbed}
+              src={GOOGLE_MAPS_EMBED_URL}
+              title={t('pages.locationMapTitle')}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          ) : (
+            <div className={styles.mapConsent}>
+              <LuMapPin size={32} aria-hidden="true" />
+              <p>
+                {t('pages.mapConsentText')}{' '}
+                <Link to={localizePath('/cookies')}>{t('pages.mapConsentLink')}</Link>
+              </p>
+              <button type="button" className={styles.mapConsentBtn} onClick={() => setMapLoaded(true)}>
+                {t('pages.mapConsentBtn')}
+              </button>
+            </div>
+          )}
         </div>
         <a
           href={GOOGLE_MAPS_URL}
@@ -108,7 +125,7 @@ export default function LocationPage() {
           className={styles.beachImage}
           style={{ backgroundImage: "url('/images/beach/beach-2.webp')" }}
           role="img"
-          aria-label={t('pages.locationBeachHeading')}
+          aria-label={t('pages.altBeach2')}
         />
         <div className={styles.beachContent}>
           <div className={styles.sectionHeader}>
@@ -148,7 +165,7 @@ export default function LocationPage() {
           className={styles.areaImage}
           style={{ backgroundImage: "url('/images/beach/beach-4.webp')" }}
           role="img"
-          aria-label={t('pages.locationAreaHeading')}
+          aria-label={t('pages.altBeach4')}
         />
       </section>
 
@@ -171,7 +188,7 @@ export default function LocationPage() {
           className={styles.sisterImage}
           style={{ backgroundImage: "url('/images/beach/beach-14.webp')" }}
           role="img"
-          aria-label={t('pages.locationSisterHeading')}
+          aria-label={t('pages.altBeach14')}
         />
       </section>
 
@@ -181,19 +198,22 @@ export default function LocationPage() {
           <p className={styles.eyebrow}>{t('pages.locationCompareEyebrow')}</p>
           <h2>{t('pages.locationCompareHeading')}</h2>
           <p className={styles.bodyText}>{t('pages.locationCompareText')}</p>
+          <Link to={localizePath('/puerto-viejo-costa-rica')} className={styles.mapBtn}>
+            {t('pages.locationCompareBtn')}
+          </Link>
         </div>
         <div className={styles.compareImages}>
           <div
             className={styles.compareImage}
             style={{ backgroundImage: "url('/images/hero/arrecife-beach.webp')" }}
             role="img"
-            aria-label={t('pages.locationCompareHeading')}
+            aria-label={t('pages.altArrecife')}
           />
           <div
             className={styles.compareImage}
             style={{ backgroundImage: "url('/images/beach/beach-13.webp')" }}
             role="img"
-            aria-label={t('pages.locationCompareHeading')}
+            aria-label={t('pages.altBeach13')}
           />
         </div>
       </section>
@@ -215,6 +235,7 @@ export default function LocationPage() {
                 target="_blank"
                 rel="noreferrer"
                 className={styles.citationCard}
+                aria-label={`${citation.title} — ${citation.source} (${t('common.newTab')})`}
               >
                 <h3 className={styles.citationTitle}>{citation.title}</h3>
                 <p className={styles.citationText}>{citation.text}</p>
@@ -233,11 +254,12 @@ export default function LocationPage() {
           className={styles.galleryVideo}
           src="/videos/punta-uva-beach.mp4"
           poster="/videos/punta-uva-beach-poster.webp"
-          aria-label={t('pages.locationGallery')}
+          aria-label={t('pages.altBeachVideo')}
           autoPlay
           muted
           loop
           playsInline
+          controls
           preload="auto"
         />
       </section>

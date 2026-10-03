@@ -38,7 +38,12 @@
   opacity: 0.9;
 }
 
+.heading {
+  color: var(--color-white);
+}
+
 .title {
+  display: block;
   font-family: var(--font-heading);
   font-size: 4rem;
   color: var(--color-white);
@@ -47,7 +52,10 @@
 }
 
 .subtitle {
+  display: block;
+  font-family: var(--font-body);
   font-size: 1.25rem;
+  line-height: 1.6;
   font-weight: 400;
   opacity: 0.9;
   letter-spacing: 0.04em;

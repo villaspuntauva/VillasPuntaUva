@@ -993,3 +993,8 @@
     padding: 20px;
   }
 }
+
+.currencySwitch {
+  margin-top: 12px;
+  box-shadow: none;
+}
