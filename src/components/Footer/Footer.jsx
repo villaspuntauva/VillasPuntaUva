@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { FaInstagram, FaTiktok } from 'react-icons/fa'
 import { getLocalizedSuites } from '../../data/suites'
-import { business, isPlaceholder } from '../../data/business'
+import { business } from '../../data/business'
 import { legalContent, legalPages } from '../../data/legal'
 import styles from './Footer.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
@@ -10,7 +10,6 @@ export default function Footer() {
   const { language, t, localizePath } = useLanguage()
   const suites = getLocalizedSuites(language)
   const legal = legalContent[language].pages
-  const showLegalIdentity = !isPlaceholder(business.legalName) && !isPlaceholder(business.legalId)
   return (
     <footer className={styles.footer}>
       <div className={styles.topBanner}>
@@ -100,9 +99,10 @@ export default function Footer() {
           ))}
         </nav>
         <p>&copy; {new Date().getFullYear()} Villas Punta Uva. {t('footer.rights')}</p>
-        {showLegalIdentity && (
-          <p>{business.legalName} · {business.legalId}</p>
-        )}
+        <p>
+          {t('footer.operatedBy', { name: business.legalName })}
+          {business.legalId && ` · ${business.legalId}`}
+        </p>
       </div>
     </footer>
   )

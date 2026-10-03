@@ -7,7 +7,7 @@
 // of that changes — e.g. adding an online payment form, a contact form, or
 // analytics — these pages must be updated at the same time.
 
-import { business, LEGAL_LAST_UPDATED } from './business'
+import { business, legalIdentity, LEGAL_LAST_UPDATED } from './business'
 
 const b = business
 
@@ -24,7 +24,7 @@ const en = {
         {
           heading: 'Who is responsible for your information',
           body: [
-            `${b.tradeName} is operated by ${b.legalName} (identification ${b.legalId}), ${b.address}. We are responsible for your personal information under Costa Rica’s Law 8968 on the Protection of Individuals with Regard to the Processing of their Personal Data.`,
+            `${b.tradeName} is operated by ${legalIdentity('identification')}, ${b.address}. We are responsible for your personal information under Costa Rica’s Law 8968 on the Protection of Individuals with Regard to the Processing of their Personal Data.`,
             `Contact for privacy questions: ${b.email} or ${b.phone} (phone/WhatsApp).`,
           ],
         },
@@ -139,7 +139,7 @@ const en = {
         {
           heading: 'Who we are',
           body: [
-            `${b.tradeName} is operated by ${b.legalName} (identification ${b.legalId}), ${b.address}. Phone/WhatsApp: ${b.phone}. Email: ${b.email}.`,
+            `${b.tradeName} is operated by ${legalIdentity('identification')}, ${b.address}. Phone/WhatsApp: ${b.phone}. Email: ${b.email}.`,
           ],
         },
         {
@@ -336,7 +336,7 @@ const es = {
         {
           heading: 'Responsable de su información',
           body: [
-            `${b.tradeName} es operado por ${b.legalName} (identificación ${b.legalId}), ${b.address}. Somos responsables de su información personal conforme a la Ley 8968 de Protección de la Persona frente al Tratamiento de sus Datos Personales de Costa Rica.`,
+            `${b.tradeName} es operado por ${legalIdentity('identificación')}, ${b.address}. Somos responsables de su información personal conforme a la Ley 8968 de Protección de la Persona frente al Tratamiento de sus Datos Personales de Costa Rica.`,
             `Contacto para consultas de privacidad: ${b.email} o ${b.phone} (teléfono/WhatsApp).`,
           ],
         },
@@ -451,7 +451,7 @@ const es = {
         {
           heading: 'Quiénes somos',
           body: [
-            `${b.tradeName} es operado por ${b.legalName} (identificación ${b.legalId}), ${b.address}. Teléfono/WhatsApp: ${b.phone}. Correo: ${b.email}.`,
+            `${b.tradeName} es operado por ${legalIdentity('identificación')}, ${b.address}. Teléfono/WhatsApp: ${b.phone}. Correo: ${b.email}.`,
           ],
         },
         {
