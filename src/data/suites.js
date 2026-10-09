@@ -32,6 +32,13 @@ const sharedPoolImages = [
   '/images/infinity pool/drone-19.webp',
 ]
 
+const sharedGymYogaImages = [
+  '/images/ammenities yoga/platform1.webp',
+  '/images/ammenities yoga/platform6.webp',
+  '/images/ammenities yoga/platform3.webp',
+  '/images/ammenities yoga/platform2.webp',
+]
+
 const sharedBeachImages = [
   '/images/beach/beach-2.webp',
   '/images/beach/beach-3.webp',
@@ -51,6 +58,7 @@ const mariposaPhotoSections = makePhotoSections('mariposa', [
   { title: 'Bedroom 4', numbers: [ 43,46, 47, 48, 53, 55] },
   { title: 'Bedroom 5', numbers: [ 58, 59, 60, 61] },
   { title: 'Pool', images: sharedPoolImages },
+  { title: 'Gym & Yoga Platform', images: sharedGymYogaImages },
   { title: 'Beach', images: sharedBeachImages },
 ])
 
@@ -62,6 +70,7 @@ const tucanPhotoSections = makePhotoSections('tucan', [
   { title: 'Bedroom 1', numbers: [17, 18] },
   { title: 'Bedroom 2', numbers: [19, 22, 25, 26] },
   { title: 'Pool', images: sharedPoolImages },
+  { title: 'Gym & Yoga Platform', images: sharedGymYogaImages },
   { title: 'Beach', images: sharedBeachImages },
 ])
 
@@ -76,6 +85,7 @@ const presidentePhotoSections = makePhotoSections('presidente', [
   { title: 'Bedroom 4', numbers: [37] },
   { title: 'Bedroom 5', numbers: [32, 34] },
   { title: 'Pool', images: sharedPoolImages },
+  { title: 'Gym & Yoga Platform', images: sharedGymYogaImages },
   { title: 'Beach', images: sharedBeachImages },
 ])
 
@@ -89,6 +99,7 @@ const angelPhotoSections = makePhotoSections('angel', [
   { title: 'Balcony', numbers: [31, 32, 33] },
   { title: 'Exterior', numbers: [34, 35, 36] },
   { title: 'Pool', images: sharedPoolImages },
+  { title: 'Gym & Yoga Platform', images: sharedGymYogaImages },
   { title: 'Beach', images: sharedBeachImages },
 ])
 
@@ -126,6 +137,7 @@ const colibriPhotoSections = makePhotoSections('colibri', [
   { title: 'Bathroom', numbers: [11] },
   { title: 'Patio', numbers: [12, 13, 14, 20, 21] },
   { title: 'Pool', images: sharedPoolImages },
+  { title: 'Gym & Yoga Platform', images: sharedGymYogaImages },
   { title: 'Beach', images: sharedBeachImages },
 ])
 
@@ -560,7 +572,7 @@ export const suites = [
       'Private path to the shared infinity pool',
       'Outdoor space for barbecuing',
     ],
-    sharedAmenities: ['Infinity pool', 'Parking'],
+    sharedAmenities: ['Infinity pool', 'Gym', 'Yoga platform', 'Parking'],
     amenitiesPreview: ['Public beach access 5 minute walk', 'Shared infinity pool', 'Kitchen', 'Wi-Fi', 'Air conditioning', 'Hammock'],
     amenities: [
       {
@@ -962,7 +974,7 @@ export const calculateSuiteStay = (suite, arrival, departure, guests, pets = 0) 
 }
 
 const spanishSuiteText = {
-  'Kitchen': 'Cocina', 'Dining Room': 'Comedor', 'Living Room': 'Sala', 'Patio': 'Patio', 'Pool': 'Piscina', 'Beach': 'Playa', 'Balcony': 'Balcón', 'Exterior': 'Exterior', 'Bathroom': 'Baño', 'Studio': 'Estudio',
+  'Kitchen': 'Cocina', 'Dining Room': 'Comedor', 'Living Room': 'Sala', 'Patio': 'Patio', 'Pool': 'Piscina', 'Gym & Yoga Platform': 'Gimnasio y plataforma de yoga', 'Beach': 'Playa', 'Balcony': 'Balcón', 'Exterior': 'Exterior', 'Bathroom': 'Baño', 'Studio': 'Estudio',
   'Bedroom 1': 'Habitación 1', 'Bedroom 2': 'Habitación 2', 'Bedroom 3': 'Habitación 3', 'Bedroom 4': 'Habitación 4', 'Bedroom 5': 'Habitación 5', '1 King Bed': '1 cama king', '1 Queen Bed': '1 cama queen',
   'Infinity pool': 'Piscina infinita', 'Gym': 'Gimnasio', 'Yoga platform': 'Plataforma de yoga', 'Parking': 'Estacionamiento', 'Public beach access 5 minute walk': 'Acceso a la playa pública a 5 minutos caminando', 'Public beach access 7 minute walk': 'Acceso a la playa pública a 7 minutos caminando', 'Shared infinity pool': 'Piscina infinita compartida', 'Shared pool': 'Piscina compartida', 'Pool': 'Piscina', 'Shared outdoor pool': 'Piscina exterior compartida', 'Private natural pool': 'Piscina natural privada', 'Shared gym': 'Gimnasio compartido', 'Kitchen': 'Cocina', 'Chef-ready kitchen': 'Cocina lista para chef', 'Wi-Fi': 'Wi‑Fi', 'Air conditioning': 'Aire acondicionado', 'Private patio or balcony': 'Patio o balcón privado', 'Patio or balcony': 'Patio o balcón', 'Private rancho': 'Rancho privado', 'Hammock': 'Hamaca', 'Dedicated workspace': 'Espacio de trabajo dedicado',
   '5 beds': '5 camas', '3 beds': '3 camas', '2 beds': '2 camas', '1 bedroom studio': 'Estudio de 1 habitación', '5 baths': '5 baños', '2 baths': '2 baños', '1 bath': '1 baño',
