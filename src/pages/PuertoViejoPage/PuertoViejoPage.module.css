@@ -552,21 +552,23 @@
 
 .wildlifeIntro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 46vw);
-  align-items: stretch;
-  margin-bottom: 96px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  align-items: center;
+  gap: 72px;
+  max-width: var(--container-max-width);
+  margin: 0 auto 96px;
+  padding: 120px 24px 0;
 }
 
 .wildlifeText {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 96px 64px 96px max(24px, calc((100vw - var(--container-max-width)) / 2 + 24px));
 }
 
 .junglePhoto {
-  height: 100%;
-  min-height: 560px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
 }
 
 .animalGrid {
@@ -779,14 +781,13 @@
 
   .wildlifeIntro {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .wildlifeText {
-    padding: 80px 24px 40px;
+    gap: 40px;
+    padding-top: 80px;
   }
 
   .junglePhoto {
-    min-height: 360px;
+    max-width: 480px;
+    aspect-ratio: 4 / 3;
   }
 
   .animalGrid,

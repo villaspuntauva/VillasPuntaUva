@@ -10,4 +10,4 @@ airbnb-ical.config.json
 assets/videos
 
 # Full-size photo originals; only the resized .webp files are published
-public/images/puerto-viejo/**/Fruits FINAL/
+public/images/puerto-viejo/**/*FINAL*/

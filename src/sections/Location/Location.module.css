@@ -77,9 +77,16 @@
   color: var(--color-white);
 }
 
+.btnRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
 .btn {
   display: inline-block;
-  margin-top: 12px;
   padding: 12px 32px;
   background-color: var(--color-primary);
   color: var(--color-white);
@@ -91,6 +98,22 @@
 
 .btn:hover {
   background-color: var(--color-primary-dark);
+}
+
+.btnOutline {
+  display: inline-block;
+  padding: 11px 31px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: var(--color-white);
+  border-radius: 50px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.btnOutline:hover {
+  background-color: var(--color-white);
+  color: var(--color-dark);
 }
 
 @media (max-width: 768px) {

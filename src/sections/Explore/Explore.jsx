@@ -39,6 +39,7 @@ export default function Explore() {
         </div>
         <div className={styles.btnWrap}>
           <Link to={localizePath('/explore')} className={styles.btn}>{t('home.viewExplore')}</Link>
+          <Link to={localizePath('/puerto-viejo-costa-rica')} className={styles.btnOutline}>{t('home.viewPuertoViejo')}</Link>
         </div>
       </div>
     </section>

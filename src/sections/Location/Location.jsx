@@ -29,7 +29,10 @@ export default function Location() {
           ))}
         </div>
 
-        <Link to={localizePath('/location')} className={styles.btn}>{t('home.viewLocation')}</Link>
+        <div className={styles.btnRow}>
+          <Link to={localizePath('/location')} className={styles.btn}>{t('home.viewLocation')}</Link>
+          <Link to={localizePath('/puerto-viejo-costa-rica')} className={styles.btnOutline}>{t('home.viewPuertoViejo')}</Link>
+        </div>
       </div>
     </section>
   )

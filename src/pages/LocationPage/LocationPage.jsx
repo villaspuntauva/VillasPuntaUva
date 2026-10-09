@@ -205,13 +205,13 @@ export default function LocationPage() {
         <div className={styles.compareImages}>
           <div
             className={styles.compareImage}
-            style={{ backgroundImage: "url('/images/hero/arrecife-beach.webp')" }}
+            style={{ backgroundImage: "url('/images/puerto-viejo/beaches/playa-chiquita-reef-shoreline-aerial-costa-rica.webp')" }}
             role="img"
             aria-label={t('pages.altArrecife')}
           />
           <div
             className={styles.compareImage}
-            style={{ backgroundImage: "url('/images/beach/beach-13.webp')" }}
+            style={{ backgroundImage: "url('/images/puerto-viejo/beaches/punta-uva-point-jungle-costa-rica.webp')" }}
             role="img"
             aria-label={t('pages.altBeach13')}
           />
@@ -221,7 +221,7 @@ export default function LocationPage() {
       <section
         id="proof"
         className={styles.proofSection}
-        style={{ backgroundImage: "url('/images/beach/beach-5.webp')" }}
+        style={{ backgroundImage: "url('/images/puerto-viejo/beaches/caribbean-beach-aerial-costa-rica.webp')" }}
       >
         <div className={styles.proofContent}>
           <p className={styles.eyebrowLight}>{t('pages.locationProofEyebrow')}</p>

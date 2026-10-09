@@ -1,5 +1,8 @@
 .section {
   padding: var(--section-padding);
+  /* Follows the white Experience section on the homepage, so its bottom
+     padding already provides the gap. */
+  padding-top: 0;
   background-color: var(--color-white);
 }
 
@@ -84,7 +87,10 @@
 }
 
 .btnWrap {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
   margin-top: 48px;
 }
 
@@ -101,6 +107,22 @@
 
 .btn:hover {
   background-color: var(--color-primary-dark);
+}
+
+.btnOutline {
+  display: inline-block;
+  padding: 11px 31px;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 50px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.btnOutline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 @media (max-width: 768px) {

@@ -9,7 +9,7 @@
 // photos (the old /images/explore/ stand-ins were removed for that reason).
 
 export const images = {
-  hero: '/images/beach/beach-8.webp',
+  hero: '/images/puerto-viejo/hero/puerto-viejo-caribbean-coast-costa-rica.webp',
   culture: null,
   cultureDetail1: null,
   cultureDetail2: null,
@@ -33,15 +33,15 @@ export const images = {
     durian: '/images/puerto-viejo/fruits/durian-puerto-viejo-costa-rica.webp',
     pineapple: '/images/puerto-viejo/fruits/pineapple-puerto-viejo-costa-rica.webp',
   },
-  beachesFeature: '/images/hero/arrecife-beach.webp',
+  beachesFeature: '/images/puerto-viejo/beaches/playa-punta-uva-caribbean-coast-costa-rica.webp',
   beaches: {
     playaNegra: null,
-    cocles: null,
-    chiquita: null,
-    puntaUva: '/images/beach/beach-5.webp',
-    manzanillo: null,
+    cocles: '/images/puerto-viejo/beaches/playa-cocles-puerto-viejo-costa-rica.webp',
+    chiquita: '/images/puerto-viejo/beaches/playa-chiquita-puerto-viejo-costa-rica.webp',
+    puntaUva: '/images/puerto-viejo/beaches/punta-uva-beach-costa-rica.webp',
+    manzanillo: '/images/puerto-viejo/beaches/manzanillo-beach-costa-rica.webp',
   },
-  jungle: '/images/beach/beach-13.webp',
+  jungle: '/images/puerto-viejo/jungle/jungle-meets-sea-punta-uva-costa-rica.webp',
   wildlife: {
     sloths: null,
     howlers: null,
@@ -51,7 +51,7 @@ export const images = {
     macaws: null,
   },
   living: '/images/about/lifestyle/experience3.webp',
-  stay: '/images/beach/beach-3.webp',
+  stay: '/images/puerto-viejo/beaches/punta-uva-aerial-costa-rica.webp',
 }
 
 const en = {
