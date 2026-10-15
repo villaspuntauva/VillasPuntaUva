@@ -827,8 +827,14 @@ export const suites = [
   },
 ]
 
+// Months (YYYY-MM) that would normally fall in low season but are priced
+// at high-season rates instead.
+const highSeasonOverrideMonths = ['2027-04']
+
 export const isLowSeasonDate = (date) => {
   const month = date.getMonth()
+  const monthKey = `${date.getFullYear()}-${String(month + 1).padStart(2, '0')}`
+  if (highSeasonOverrideMonths.includes(monthKey)) return false
   return month >= 3 && month <= 5
 }
 
