@@ -16,10 +16,10 @@ Each photo is listed in `images` at the top of `src/data/puertoViejo.js`. When a
 | Page section | Slot | Orientation | Suggested file name | What to shoot |
 |---|---|---|---|---|
 | Hero | `hero` | Landscape, cinematic | `hero/puerto-viejo-caribbean-coast-costa-rica.webp` | Atmospheric, not a postcard: early light, the coast road, or the town waking up |
-| 01 Culture | `culture` | Portrait 4:5 | `culture/afro-caribbean-architecture-puerto-viejo.webp` | Colorful wooden Caribbean building, people, daily life |
-| 01 Culture | `cultureDetail1` | Landscape 4:3 | `town/bicycles-street-life-puerto-viejo.webp` | Bicycles, street detail |
-| 01 Culture | `cultureDetail2` | Landscape 4:3 | `culture/calypso-music-puerto-viejo.webp` | Music, a local business, or people talking |
-| 02 Food | `food` | Portrait 4:5 | `food/rice-and-beans-caribbean-food-puerto-viejo.webp` | A Caribbean plate: rice and beans, rondón or patí |
+| 01 Culture | `culture` | Portrait 4:5 | `culture/roadside-fruit-stand-puerto-viejo-costa-rica.webp` | Done: roadside fruit stand (Cocles Lifestyle 4) |
+| 01 Culture | `cultureDetail1` | Landscape 4:3 | `culture/tuk-tuk-main-road-puerto-viejo-costa-rica.webp` | Done: tuk-tuk on the main road (Cocles Lifestyle 15) |
+| 01 Culture | `cultureDetail2` | Landscape 4:3 | `culture/surfboards-playa-cocles-puerto-viejo-costa-rica.webp` | Done: surfboards at Cocles (Cocles Lifestyle 40) |
+| 02 Food | `food` | Portrait 4:5 | `food/caribbean-patty-cart-puerto-viejo-costa-rica.webp` | Done: patty cart (Cocles Lifestyle 47) |
 | 02 Fruits | `fruits.*` (17 slots) | Square crop | `fruits/<fruit>-puerto-viejo-costa-rica.webp` | **Done.** The full shoot is in `fruits/` as an album: each fruit's best photo has the plain name and is used on the page, and extra shots are numbered `-2`, `-3`, and so on. Group shots are named `tropical-fruit-display-*`, `mixed-tropical-fruit-*` and `cut-tropical-fruit-*`. Rename `unidentified-fruit-*` once you know what it is |
 | 03 Beaches | `beachesFeature` | Wide landscape | `beaches/playa-punta-uva-caribbean-coast-costa-rica.webp` | The strongest beach photo of the whole shoot |
 | 03 Beaches | `beaches.playaNegra` | Portrait 3:4 | `beaches/playa-negra-puerto-viejo-costa-rica.webp` | Playa Negra's dark sand |

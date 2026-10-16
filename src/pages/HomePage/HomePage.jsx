@@ -56,8 +56,8 @@ export default function HomePage() {
       <SEO title={seo.title} description={seo.description} path="/" />
       <Hero />
       <BookingWidget onSearch={handleSuiteSearch} />
-      <Location />
       <SuitesGallery />
+      <Location />
       <Experience />
       <Explore />
       <AboutUs />

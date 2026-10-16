@@ -9,11 +9,11 @@
 // photos (the old /images/explore/ stand-ins were removed for that reason).
 
 export const images = {
-  hero: '/images/puerto-viejo/hero/puerto-viejo-caribbean-coast-costa-rica.webp',
-  culture: null,
-  cultureDetail1: null,
-  cultureDetail2: null,
-  food: null,
+  hero: '/images/puerto-viejo/hero/playa-cocles-palms-puerto-viejo-costa-rica.webp',
+  culture: '/images/puerto-viejo/culture/roadside-fruit-stand-puerto-viejo-costa-rica.webp',
+  cultureDetail1: '/images/puerto-viejo/culture/tuk-tuk-main-road-puerto-viejo-costa-rica.webp',
+  cultureDetail2: '/images/puerto-viejo/culture/surfboards-playa-cocles-puerto-viejo-costa-rica.webp',
+  food: '/images/puerto-viejo/food/caribbean-patty-cart-puerto-viejo-costa-rica.webp',
   fruits: {
     cacao: '/images/puerto-viejo/fruits/cacao-puerto-viejo-costa-rica.webp',
     rambutan: '/images/puerto-viejo/fruits/rambutan-puerto-viejo-costa-rica.webp',
@@ -64,7 +64,7 @@ const en = {
     eyebrow: 'Puerto Viejo de Talamanca, Costa Rica',
     title: 'Discover Puerto Viejo',
     text: 'Where Caribbean culture, tropical nature and ocean life meet.',
-    alt: 'Aerial view of jungle meeting a quiet beach on the Caribbean coast near Puerto Viejo, Costa Rica',
+    alt: 'Palm trees and a grassy path leading to the sea at Playa Cocles, Puerto Viejo, Costa Rica',
   },
   intro: {
     text: "Puerto Viejo de Talamanca is more than a beach destination. It's a small Caribbean town shaped by Afro-Caribbean culture, tropical forest, beaches, surfing, local food and a slower way of life. This page is our answer to the question most visitors ask before they arrive: what is it actually like here?",
@@ -89,9 +89,9 @@ const en = {
       { title: 'Music', text: 'Calypso limonense, reggae and dancehall, from beach bars to Saturday nights.' },
       { title: 'Pace', text: 'Bicycles, open doors and "pura vida" taken seriously.' },
     ],
-    alt: 'Colorful stall of tropical fruit and produce at a local market near Puerto Viejo',
-    detail1Alt: 'Fire dancer performing at night in Puerto Viejo',
-    detail2Alt: 'Open-air restaurant in Puerto Viejo, Costa Rica',
+    alt: 'Roadside stand piled with pineapples and papayas near Playa Cocles, Puerto Viejo',
+    detail1Alt: 'Blue tuk-tuk driving down the jungle-lined main road in Puerto Viejo, Costa Rica',
+    detail2Alt: 'Colorful surfboards lined up in the sand under a tree at Playa Cocles',
   },
   food: {
     eyebrow: 'Chapter 02 — Food & Fruits',
@@ -105,7 +105,7 @@ const en = {
       { name: 'Pan bon', text: 'A dark, sweet Caribbean bread with cheese and candied fruit, especially around the holidays.' },
       { name: 'Agua de sapo', text: 'Ginger, lime and raw cane sugar over ice — the local answer to the humidity.' },
     ],
-    alt: 'Cacao pods, cacao beans and handmade chocolate from the Talamanca region',
+    alt: 'Hand-painted patty cart with a lion mural selling Caribbean patties near Playa Cocles',
     fruitsTitle: 'What grows around Puerto Viejo?',
     fruitsText: 'Heat, rain and rich soil make the Caribbean coast one of the best places in Costa Rica to taste tropical fruit straight from the tree. Many of these grow on farms and in gardens around Punta Uva, including on our own property.',
     fruits: [
@@ -203,7 +203,7 @@ const es = {
     eyebrow: 'Puerto Viejo de Talamanca, Costa Rica',
     title: 'Descubra Puerto Viejo',
     text: 'Donde se encuentran la cultura caribeña, la naturaleza tropical y la vida junto al mar.',
-    alt: 'Vista aérea de la selva junto a una playa tranquila en el Caribe cerca de Puerto Viejo, Costa Rica',
+    alt: 'Palmeras y un sendero de césped que llega al mar en Playa Cocles, Puerto Viejo, Costa Rica',
   },
   intro: {
     text: 'Puerto Viejo de Talamanca es mucho más que un destino de playa. Es un pequeño pueblo caribeño moldeado por la cultura afrocaribeña, el bosque tropical, las playas, el surf, la comida local y un ritmo de vida más lento. Esta página responde a lo que la mayoría de visitantes se pregunta antes de llegar: ¿cómo es realmente vivir aquí?',
@@ -228,9 +228,9 @@ const es = {
       { title: 'Música', text: 'Calipso limonense, reggae y dancehall, desde los bares de playa hasta los sábados por la noche.' },
       { title: 'Ritmo', text: 'Bicicletas, puertas abiertas y el "pura vida" tomado en serio.' },
     ],
-    alt: 'Puesto colorido de frutas tropicales y productos en un mercado local cerca de Puerto Viejo',
-    detail1Alt: 'Malabarista de fuego de noche en Puerto Viejo',
-    detail2Alt: 'Restaurante al aire libre en Puerto Viejo, Costa Rica',
+    alt: 'Puesto de frutas al lado de la carretera con piñas y papayas cerca de Playa Cocles, Puerto Viejo',
+    detail1Alt: 'Tuk-tuk azul por la carretera principal rodeada de selva en Puerto Viejo, Costa Rica',
+    detail2Alt: 'Tablas de surf de colores en la arena bajo un árbol en Playa Cocles',
   },
   food: {
     eyebrow: 'Capítulo 02 — Comida y frutas',
@@ -244,7 +244,7 @@ const es = {
       { name: 'Pan bon', text: 'Un pan caribeño oscuro y dulce con queso y frutas confitadas, sobre todo en temporada navideña.' },
       { name: 'Agua de sapo', text: 'Jengibre, limón y tapa de dulce con hielo: la respuesta local a la humedad.' },
     ],
-    alt: 'Mazorcas de cacao, granos de cacao y chocolate artesanal de la región de Talamanca',
+    alt: 'Carrito de patís pintado a mano con un mural de león cerca de Playa Cocles',
     fruitsTitle: '¿Qué crece alrededor de Puerto Viejo?',
     fruitsText: 'El calor, la lluvia y la tierra fértil hacen del Caribe uno de los mejores lugares de Costa Rica para probar frutas tropicales directamente del árbol. Muchas crecen en fincas y jardines alrededor de Punta Uva, incluida nuestra propiedad.',
     fruits: [
