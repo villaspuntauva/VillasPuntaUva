@@ -687,7 +687,12 @@ export default function SuiteDetailPage() {
       <section className={styles.hero}>
         <div>
           <Link to={localizePath('/suites')} className={styles.backText}>{t('suites.all')}</Link>
-          <h1>{suite.name}</h1>
+          {/* Bedroom count keeps the H1 distinct between the English and Spanish pages. */}
+          <h1>
+            {suite.bedrooms > 1
+              ? t('suites.headingBedrooms', { name: suite.name, count: suite.bedrooms })
+              : t('suites.headingStudio', { name: suite.name })}
+          </h1>
           <p className={styles.location}>{suite.location}, Costa Rica</p>
         </div>
         <p className={styles.heroPrice}>
