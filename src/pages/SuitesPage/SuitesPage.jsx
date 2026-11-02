@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { IoBedOutline, IoPeopleOutline } from 'react-icons/io5'
 import { LuBath } from 'react-icons/lu'
 import BookingWidget from '../../sections/BookingWidget/BookingWidget'
-import { findNearbyAvailableStay, getLocalizedSuites, getLowestNightlyRate, isSuiteAvailable } from '../../data/suites'
+import { findNearbyAvailableStay, getLocalizedSuites, getLowestNightlyRate, getMinNights, isSuiteAvailable } from '../../data/suites'
 import { useAvailability } from '../../data/availability'
 import styles from './SuitesPage.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
@@ -70,7 +70,13 @@ function getBookingValueFromParams(searchParams) {
   }
 }
 
-const NO_MINIMUM_SLUGS = ['carey-house', 'villa-colibri']
+function countNights(arrival, departure) {
+  return Math.round((departure - arrival) / (1000 * 60 * 60 * 24))
+}
+
+function meetsMinNights(suite, arrival, departure) {
+  return countNights(arrival, departure) >= getMinNights(suite, arrival)
+}
 
 function getMaxGuests(suite) {
   return suite.maxGuests ?? suite.sleeps
@@ -173,12 +179,9 @@ export default function SuitesPage() {
 
   const similarDateSuites = useMemo(() => {
     if (!appliedStay) return []
-    const oneNight = Math.round((appliedStay.departure - appliedStay.arrival) / (1000 * 60 * 60 * 24)) === 1
-
     return conflictSuites
-      .filter((suite) => !oneNight || NO_MINIMUM_SLUGS.includes(suite.slug))
       .map((suite) => ({ suite, stay: findNearbyAvailableStay(suite.slug, appliedStay.arrival, appliedStay.departure) }))
-      .filter(({ stay }) => stay)
+      .filter(({ suite, stay }) => stay && meetsMinNights(suite, stay.arrival, stay.departure))
   }, [conflictSuites, appliedStay, availability])
 
   const unavailableSuites = conflictSuites.filter(
@@ -197,18 +200,16 @@ export default function SuitesPage() {
     return guestFilteredSuites.filter((suite) => isSuiteAvailable(suite.slug, appliedStay.arrival, appliedStay.departure))
   }, [guestFilteredSuites, appliedStay, availability])
 
-  const oneNightStay = useMemo(() => {
-    if (!appliedStay) return false
-    const nights = Math.round((appliedStay.departure - appliedStay.arrival) / (1000 * 60 * 60 * 24))
-    return nights === 1
-  }, [appliedStay])
-
-  const availableSuites = oneNightStay
-    ? filteredSuites.filter((suite) => NO_MINIMUM_SLUGS.includes(suite.slug))
+  const availableSuites = appliedStay
+    ? filteredSuites.filter((suite) => meetsMinNights(suite, appliedStay.arrival, appliedStay.departure))
     : filteredSuites
-  const restrictedSuites = oneNightStay
-    ? filteredSuites.filter((suite) => !NO_MINIMUM_SLUGS.includes(suite.slug))
+  const restrictedSuites = appliedStay
+    ? filteredSuites.filter((suite) => !meetsMinNights(suite, appliedStay.arrival, appliedStay.departure))
     : []
+  const restrictedMinNights = restrictedSuites.reduce(
+    (most, suite) => Math.max(most, getMinNights(suite, appliedStay.arrival)),
+    0,
+  )
 
   // Dimmed (unavailable) cards must not carry the searched dates onward —
   // landing on that villa's page with those dates pre-filled would make it
@@ -323,10 +324,10 @@ export default function SuitesPage() {
               </div>
             )}
 
-            {!error && oneNightStay && restrictedSuites.length > 0 && (
+            {!error && restrictedSuites.length > 0 && (
               <>
                 <div className={styles.message}>
-                  <p>{t('suites.twoNightMinimum')}</p>
+                  <p>{t('suites.twoNightMinimum', { count: restrictedMinNights })}</p>
                   <p className={styles.messageSubtext}>{t('suites.twoNightMinimumException')}</p>
                 </div>
                 <div className={styles.grid}>

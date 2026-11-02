@@ -39,6 +39,9 @@ const sharedGymYogaImages = [
   '/images/ammenities yoga/platform2.webp',
 ]
 
+// The pool drone shot each villa features; one shared URL so browsers cache it once.
+const sharedPoolFeatureImage = '/images/infinity pool/drone-3.webp'
+
 const sharedBeachImages = [
   '/images/beach/beach-2.webp',
   '/images/beach/beach-3.webp',
@@ -46,7 +49,7 @@ const sharedBeachImages = [
   '/images/beach/beach-5.webp',
 ]
 
-const mariposaFeaturedGallery = makeSuiteImages('mariposa', [1, 8, 30, 37, 66])
+const mariposaFeaturedGallery = [...makeSuiteImages('mariposa', [1, 8, 30, 37]), sharedPoolFeatureImage]
 const mariposaPhotoSections = makePhotoSections('mariposa', [
   { title: 'Kitchen', numbers: [1, 2, 4] },
   { title: 'Dining Room', numbers: [ 8, 9] },
@@ -63,7 +66,7 @@ const mariposaPhotoSections = makePhotoSections('mariposa', [
   { title: 'Beach', images: sharedBeachImages },
 ])
 
-const tucanFeaturedGallery = makeSuiteImages('tucan', [1, 2, 17, 12, 28])
+const tucanFeaturedGallery = [...makeSuiteImages('tucan', [1, 2, 17, 12]), sharedPoolFeatureImage]
 const tucanPhotoSections = makePhotoSections('tucan', [
   { title: 'Kitchen', numbers: [1, 3, 5, 6, 7] },
   { title: 'Living Room', numbers: [2, 8, 9, 10] },
@@ -76,7 +79,7 @@ const tucanPhotoSections = makePhotoSections('tucan', [
   { title: 'Beach', images: sharedBeachImages },
 ])
 
-const presidenteFeaturedGallery = makeSuiteImages('presidente', [20, 7, 13, 1, 38])
+const presidenteFeaturedGallery = [...makeSuiteImages('presidente', [20, 7, 13, 1]), sharedPoolFeatureImage]
 const presidentePhotoSections = makePhotoSections('presidente', [
   { title: 'Kitchen', numbers: [1, 3, 4, 5, 9, 10, 12] },
   { title: 'Dining Room', numbers: [6, 7, 8] },
@@ -92,7 +95,7 @@ const presidentePhotoSections = makePhotoSections('presidente', [
   { title: 'Beach', images: sharedBeachImages },
 ])
 
-const angelFeaturedGallery = makeSuiteImages('angel', [24, 5, 12, 27, 38])
+const angelFeaturedGallery = [...makeSuiteImages('angel', [24, 5, 12, 27]), sharedPoolFeatureImage]
 const angelPhotoSections = makePhotoSections('angel', [
   { title: 'Living Room', numbers: [1, 2, 3] },
   { title: 'Dining Room', numbers: [5, 6, 10] },
@@ -115,12 +118,12 @@ const cachaPhotoSections = makePhotoSections('cacha', [
   { title: 'Bedroom 2', numbers: [37] },
   { title: 'Bedroom 3', numbers: [29, 30, 32] },
   { title: 'Patio', numbers: [10, 11, 12, 13, 22] },
-  { title: 'Pool', numbers: [40,41] },
+  { title: 'Pool', numbers: [40, 41, 42, 43, 44] },
   { title: 'Exterior', numbers: [2, 3] },
   { title: 'Beach', images: sharedBeachImages },
 ])
 
-const careyFeaturedGallery = makeSuiteImages('carey', [12, 2, 5, 7, 13])
+const careyFeaturedGallery = [...makeSuiteImages('carey', [12, 2, 5, 7]), sharedPoolFeatureImage]
 const careyPhotoSections = makePhotoSections('carey', [
   { title: 'Bedroom 1', numbers: [9, 10, 11] },
   { title: 'Kitchen', numbers: [2, 3] },
@@ -132,7 +135,7 @@ const careyPhotoSections = makePhotoSections('carey', [
   { title: 'Beach', images: sharedBeachImages },
 ])
 
-const colibriFeaturedGallery = makeSuiteImages('colibri', [2, 8, 6, 12, 22])
+const colibriFeaturedGallery = [...makeSuiteImages('colibri', [2, 8, 6, 12]), sharedPoolFeatureImage]
 const colibriPhotoSections = makePhotoSections('colibri', [
   { title: 'Bedroom 1', numbers: [ 4, 8, 10] },
   { title: 'Dining Room', numbers: [6, 7] },
@@ -161,7 +164,7 @@ export const suites = [
     location: 'Puerto Viejo',
     slug: 'villa-mariposa',
     airbnbUrl: 'https://www.airbnb.ca/rooms/1110956901295044381',
-    image: '/images/suites/mariposa.webp',
+    image: '/images/suites/mariposa/mariposa-39.webp',
     gallery: makeGalleryFromPhotoSections(mariposaFeaturedGallery, mariposaPhotoSections),
     featuredGallery: mariposaFeaturedGallery,
     photoSections: mariposaPhotoSections,  
@@ -453,7 +456,7 @@ export const suites = [
     location: 'Puerto Viejo',
     slug: 'villa-colibri',
     airbnbUrl: 'https://www.airbnb.ca/rooms/1121764501882415469',
-    image: '/images/suites/colibri.webp',
+    image: '/images/suites/colibri/colibri-10.webp',
     gallery: makeGalleryFromPhotoSections(colibriFeaturedGallery, colibriPhotoSections),
     featuredGallery: colibriFeaturedGallery,
     photoSections: colibriPhotoSections,
@@ -641,7 +644,7 @@ export const suites = [
     location: 'Puerto Viejo',
     slug: 'villa-cacha',
     airbnbUrl: 'https://www.airbnb.ca/rooms/1248597947139254573',
-    image: '/images/suites/cacha.webp',
+    image: '/images/suites/cacha/cacha-24.webp',
     gallery: makeGalleryFromPhotoSections(cachaFeaturedGallery, cachaPhotoSections),
     featuredGallery: cachaFeaturedGallery,
     photoSections: cachaPhotoSections,
@@ -737,7 +740,7 @@ export const suites = [
     location: 'Puerto Viejo',
     slug: 'carey-house',
     airbnbUrl: 'https://www.airbnb.ca/rooms/1360877574407543821',
-    image: '/images/suites/carey.webp',
+    image: '/images/suites/carey/carey-12.webp',
     gallery: makeGalleryFromPhotoSections(careyFeaturedGallery, careyPhotoSections),
     featuredGallery: careyFeaturedGallery,
     photoSections: careyPhotoSections,
@@ -894,6 +897,40 @@ export const getStayNights = (arrival, departure) => {
 function parseIsoDate(value) {
   const [year, month, day] = value.split('-').map(Number)
   return new Date(year, month - 1, day)
+}
+
+// Holiday check-in dates that need a longer stay at every villa. These mirror
+// the minimum-stay settings on the Airbnb calendar by hand, because Airbnb's
+// iCal export only carries reservations, not minimum-night rules.
+const HOLIDAY_MIN_NIGHTS = [
+  { start: '2026-12-30', end: '2026-12-31', minNights: 3 },
+  { start: '2027-03-24', end: '2027-03-26', minNights: 3 },
+]
+
+// Every individual check-in date covered by a holiday rule.
+export const getHolidayMinNightDates = () =>
+  HOLIDAY_MIN_NIGHTS.flatMap((rule) => {
+    const dates = []
+    const end = parseIsoDate(rule.end)
+    for (let date = parseIsoDate(rule.start); date <= end; date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1)) {
+      dates.push({ date, minNights: rule.minNights })
+    }
+    return dates
+  })
+
+// The minimum stay for a check-in date: the villa's usual minimum, raised by
+// any holiday rule that covers that arrival day.
+export const getMinNights = (suite, arrival) => {
+  const base = suite.minNights ?? 1
+  if (!arrival) return base
+
+  const holiday = getHolidayMinNightDates().find(
+    ({ date }) =>
+      date.getFullYear() === arrival.getFullYear() &&
+      date.getMonth() === arrival.getMonth() &&
+      date.getDate() === arrival.getDate(),
+  )
+  return holiday ? Math.max(base, holiday.minNights) : base
 }
 
 // Checks the real Airbnb-synced reservations for this suite (not the

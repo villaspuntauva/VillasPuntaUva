@@ -1,12 +1,104 @@
 {
   "redirects": [
-    { "source": "/attractions", "destination": "/explore", "permanent": true },
-    { "source": "/es/attractions", "destination": "/es/explore", "permanent": true }
+    {
+      "source": "/attractions",
+      "destination": "/explore",
+      "permanent": true
+    },
+    {
+      "source": "/es/attractions",
+      "destination": "/es/explore",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/angel/angel-38.webp",
+      "destination": "/images/infinity%20pool/drone-3.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/carey/carey-13.webp",
+      "destination": "/images/infinity%20pool/drone-3.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/colibri/colibri-22.webp",
+      "destination": "/images/infinity%20pool/drone-3.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/mariposa/mariposa-66.webp",
+      "destination": "/images/infinity%20pool/drone-3.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/presidente/presidente-38.webp",
+      "destination": "/images/infinity%20pool/drone-3.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/tucan/tucan-28.webp",
+      "destination": "/images/infinity%20pool/drone-3.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/mariposa.webp",
+      "destination": "/images/suites/mariposa/mariposa-39.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/colibri.webp",
+      "destination": "/images/suites/colibri/colibri-10.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/carey.webp",
+      "destination": "/images/suites/carey/carey-12.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/cacha.webp",
+      "destination": "/images/suites/cacha/cacha-24.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/suites/angel/angel-21.webp",
+      "destination": "/images/suites/angel.webp",
+      "permanent": true
+    }
   ],
   "rewrites": [
     {
       "source": "/((?:es/?)?|(?:es/)?(?:suites(?:/(?:villa-mariposa|villa-tucan|villa-presidente|villa-colibri|villa-angel|villa-cacha|carey-house))?|location|puerto-viejo-costa-rica|about|explore|contact|faq|privacy|terms|refunds|cookies)/?)",
       "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/videos/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
     }
   ]
 }

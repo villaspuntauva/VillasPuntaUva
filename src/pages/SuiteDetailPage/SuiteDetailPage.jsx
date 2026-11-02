@@ -26,7 +26,9 @@ import {
 import {
   calculateSuiteStay,
   getLowestNightlyRate,
+  getHolidayMinNightDates,
   getLocalizedSuite,
+  getMinNights,
   getRatesForDate,
   isSuiteAvailable,
   suites,
@@ -104,6 +106,17 @@ function getInsufficientRunwayRanges(occupiedRanges, minNights) {
     start: addDays(range.start, -(minNights - 1)),
     end: addDays(range.start, -1),
   }))
+}
+
+// Holiday arrival days with a longer minimum stay can't be check-in dates
+// when a reservation starts before that longer stay would end.
+function getHolidayRunwayRanges(occupiedRanges, baseMinNights) {
+  return getHolidayMinNightDates()
+    .filter(({ date, minNights }) =>
+      minNights > baseMinNights &&
+      occupiedRanges.some((range) => range.start <= addDays(date, minNights - 1) && range.end >= date),
+    )
+    .map(({ date }) => ({ start: date, end: date }))
 }
 
 // A checkout date isn't itself an occupied night — the guest leaves that
@@ -448,12 +461,17 @@ function BookingPanel({ suite }) {
   const guestCount = Number(guests)
   const petCount = Number(pets) || 0
   const hasSearchValue = Boolean(arrival || departure || guestCount !== 2 || kidsUnder5 || pets)
-  const minNights = suite.minNights ?? 1
+  const baseMinNights = suite.minNights ?? 1
+  const minNights = getMinNights(suite, arrival)
   const availability = useAvailability()
   const blockedRanges = useMemo(() => getBlockedRanges(suite.slug), [suite.slug, availability])
   const arrivalExcludedRanges = useMemo(
-    () => [...blockedRanges, ...getInsufficientRunwayRanges(blockedRanges, minNights)],
-    [blockedRanges, minNights],
+    () => [
+      ...blockedRanges,
+      ...getInsufficientRunwayRanges(blockedRanges, baseMinNights),
+      ...getHolidayRunwayRanges(blockedRanges, baseMinNights),
+    ],
+    [blockedRanges, baseMinNights],
   )
   const checkoutExcludedRanges = useMemo(() => getCheckoutExcludedRanges(blockedRanges), [blockedRanges])
 
@@ -708,30 +726,12 @@ export default function SuiteDetailPage() {
         <div className={styles.mainContent}>
           <div className={styles.summary}>
             <div className={styles.facts}>
-              <Fact icon={<IoPeopleOutline size={20} />} label={`${suite.sleeps} ${t('suites.guests')}`} />
+              <Fact icon={<IoPeopleOutline size={20} />} label={`${suite.sleeps} ${t('common.guests')}`} />
               <Fact icon={<IoBedOutline size={20} />} label={suite.bedsLabel} />
               <Fact icon={<LuBath size={20} />} label={suite.bathsLabel} />
             </div>
             <p>{suite.description}</p>
           </div>
-
-          <SleepingSection suite={suite} />
-
-          <div className={styles.sectionBlock}>
-            <h2>{t('suites.special')}</h2>
-            <div className={styles.featureGrid}>
-              {suite.features.map((feature) => (
-                <div key={feature} className={styles.feature}>
-                  <LuSparkles size={18} />
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <AmenitiesSection suite={suite} />
-
-          <NotesSection suite={suite} />
 
           <div className={styles.sectionBlock}>
             <h2>{t('suites.rates')}</h2>
@@ -802,6 +802,24 @@ export default function SuiteDetailPage() {
 
             <p className={styles.rateNote}>{t('suites.holidayPricingNote')}</p>
           </div>
+
+          <SleepingSection suite={suite} />
+
+          <div className={styles.sectionBlock}>
+            <h2>{t('suites.special')}</h2>
+            <div className={styles.featureGrid}>
+              {suite.features.map((feature) => (
+                <div key={feature} className={styles.feature}>
+                  <LuSparkles size={18} />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <AmenitiesSection suite={suite} />
+
+          <NotesSection suite={suite} />
 
           <AirbnbSection suite={suite} />
         </div>
