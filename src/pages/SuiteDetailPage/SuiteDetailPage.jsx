@@ -650,7 +650,8 @@ export default function SuiteDetailPage() {
     )
   }
 
-  const currentRates = getRatesForDate(suite, new Date())
+  const rates2026 = getRatesForDate(suite, new Date(2026, 0, 1))
+  const rates2027 = getRatesForDate(suite, new Date(2027, 0, 1))
 
   // Each villa is an accommodation inside the one LodgingBusiness declared
   // in index.html (#property), not a business of its own.
@@ -739,14 +740,30 @@ export default function SuiteDetailPage() {
               <div className={styles.rateCard}>
                 <LuCalendarDays size={20} />
                 <h3>{t('suites.rateHigh')}</h3>
-                <p>{formatPrice(currentRates.high.weekday)} {t('suites.weekdays')}</p>
-                <p>{formatPrice(currentRates.high.weekend)} {t('suites.weekends')}</p>
+                <p>{formatPrice(rates2026.high.weekday)} {t('suites.weekdays')}</p>
+                <p>{formatPrice(rates2026.high.weekend)} {t('suites.weekends')}</p>
               </div>
               <div className={styles.rateCard}>
                 <LuCalendarDays size={20} />
                 <h3>{t('suites.rateLow')}</h3>
-                <p>{formatPrice(currentRates.low.weekday)} {t('suites.weekdays')}</p>
-                <p>{formatPrice(currentRates.low.weekend)} {t('suites.weekends')}</p>
+                <p>{formatPrice(rates2026.low.weekday)} {t('suites.weekdays')}</p>
+                <p>{formatPrice(rates2026.low.weekend)} {t('suites.weekends')}</p>
+              </div>
+            </div>
+
+            <h2 className={styles.nextYearRates}>{t('suites.rates2027')}</h2>
+            <div className={styles.rateCards}>
+              <div className={styles.rateCard}>
+                <LuCalendarDays size={20} />
+                <h3>{t('suites.rateHigh')}</h3>
+                <p>{formatPrice(rates2027.high.weekday)} {t('suites.weekdays')}</p>
+                <p>{formatPrice(rates2027.high.weekend)} {t('suites.weekends')}</p>
+              </div>
+              <div className={styles.rateCard}>
+                <LuCalendarDays size={20} />
+                <h3>{t('suites.rateLow')}</h3>
+                <p>{formatPrice(rates2027.low.weekday)} {t('suites.weekdays')}</p>
+                <p>{formatPrice(rates2027.low.weekend)} {t('suites.weekends')}</p>
               </div>
             </div>
 

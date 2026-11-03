@@ -449,6 +449,10 @@
   color: var(--color-primary-dark);
 }
 
+.sectionBlock h2.nextYearRates {
+  margin-top: 28px;
+}
+
 .rateCards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
