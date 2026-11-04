@@ -13,12 +13,12 @@ import CurrencySwitch from '../../components/CurrencySwitch/CurrencySwitch'
 
 const seoText = {
   en: {
-    title: 'Villas & Rates | Villas Punta Uva, Puerto Viejo Costa Rica',
-    description: "Browse 7 private villas in Punta Uva, Puerto Viejo — from cozy studios to 5-bedroom homes. Check real-time availability and 2026 rates, and book direct.",
+    title: 'Villas & Rates | Villas Punta Uva',
+    description: 'Browse 7 private villas in Punta Uva, Puerto Viejo — from 1 to 5-bedroom homes. Check real-time availability and rates.',
   },
   es: {
-    title: 'Villas y Tarifas | Villas Punta Uva, Puerto Viejo Costa Rica',
-    description: '7 villas privadas en Punta Uva, Puerto Viejo: desde estudios hasta casas de 5 habitaciones. Vea disponibilidad y tarifas 2026, y reserve directo.',
+    title: 'Villas y Tarifas | Villas Punta Uva',
+    description: 'Descubra 7 villas privadas en Punta Uva, Puerto Viejo, desde casas de 1 hasta 5 habitaciones. Vea disponibilidad y tarifas en tiempo real.',
   },
 }
 

@@ -697,8 +697,8 @@ export default function SuiteDetailPage() {
   return (
     <div className={styles.page}>
       <SEO
-        title={`${suite.name} | Villas Punta Uva, ${language === 'es' ? 'Playa Punta Uva' : 'Punta Uva Beach'} Costa Rica`}
-        description={suite.shortDescription}
+        title={suite.seoTitle ?? `${suite.name} | Villas Punta Uva, ${language === 'es' ? 'Playa Punta Uva' : 'Punta Uva Beach'} Costa Rica`}
+        description={suite.seoDescription ?? suite.shortDescription}
         path={`/suites/${suite.slug}`}
         image={`${SITE_URL}${suite.image}`}
         jsonLd={[suiteJsonLd, breadcrumbJsonLd]}

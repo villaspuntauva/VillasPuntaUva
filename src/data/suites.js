@@ -177,6 +177,8 @@ export const suites = [
     bathsLabel: '5 baths',
     cleaningFee: 150,
     petFriendly: true,
+    seoTitle: 'Villa Mariposa | Punta Uva Beach Costa Rica',
+    seoDescription: 'A spacious five-bed and bath Caribbean villa perfect for big groups of families or friends',
     shortDescription:
       'A spacious five-bedroom Caribbean villa with king suites, a chef-ready kitchen, jungle-view porches, and shared infinity pool access.',
     description:
@@ -275,6 +277,8 @@ export const suites = [
     bathsLabel: '2 baths',
     cleaningFee: 60,
     petFriendly: true,
+    seoTitle: 'Villa Tucan | Punta Uva Beach Costa Rica',
+    seoDescription: 'An upper-level two-bedroom home with a bright kitchen, full air conditioning, and shared pool, gym, and yoga deck access.',
     shortDescription:
       'An upper-level two-bedroom jungle retreat with a bright kitchen, full air conditioning, and shared pool, gym, and yoga deck access.',
     description:
@@ -370,6 +374,8 @@ export const suites = [
     bathsLabel: '5 baths',
     cleaningFee: 150,
     petFriendly: true,
+    seoTitle: 'Villa Presidente | Punta Uva Beach Costa Rica',
+    seoDescription: 'An elegant five-bedroom residence with private bathrooms, balconies, a chef-ready kitchen, and shared resort-style amenities.',
     shortDescription:
       'An elegant five-bedroom residence with private bathrooms, balconies, a chef-ready kitchen, and shared resort-style amenities.',
     description:
@@ -468,6 +474,7 @@ export const suites = [
     bathsLabel: '1 bath',
     cleaningFee: 30,
     petFriendly: true,
+    seoTitle: 'Villa Colibri | Punta Uva Beach Costa Rica',
     shortDescription:
       'A cozy air-conditioned studio with a private kitchen, outdoor rancho, hammocks, and shared pool and gym access.',
     description:
@@ -562,6 +569,8 @@ export const suites = [
     bathsLabel: '2 baths',
     cleaningFee: 100,
     petFriendly: true,
+    seoTitle: 'Villa Angel | Punta Uva Beach Costa Rica',
+    seoDescription: 'A private wood-style two-bedroom villa with wraparound porches, hammocks, full kitchen, and shared infinity pool access.',
     shortDescription:
       'A private wood-style two-bedroom villa with wraparound porches, hammocks, full kitchen, and shared infinity pool access.',
     description:
@@ -657,6 +666,7 @@ export const suites = [
     bathsLabel: '2 baths',
     cleaningFee: 125,
     petFriendly: true,
+    seoTitle: 'Villa Cacha | Punta Uva Beach Costa Rica',
     shortDescription:
       'A natural wood three-bedroom home with expansive decks, private natural pool, and lush fruit-tree surroundings.',
     description:
@@ -752,6 +762,7 @@ export const suites = [
     bathsLabel: '1 bath',
     cleaningFee: 50,
     petFriendly: true,
+    seoTitle: 'Villa Carey | Punta Uva Beach Costa Rica',
     shortDescription:
       'A cozy two-bedroom wood home with air conditioning, porch seating, and shared infinity pool access nearby.',
     description:
@@ -1080,30 +1091,41 @@ const spanishSuiteText = {
 
 const spanishSuiteNarratives = {
   1: {
+    seoTitle: 'Villa Mariposa | Playa Punta Uva Costa Rica',
+    seoDescription: 'Una amplia villa caribeña de cinco habitaciones y cinco baños, perfecta para grupos grandes de familias o amigos',
     shortDescription: 'Una espaciosa villa caribeña de cinco habitaciones con suites king, cocina lista para chef, porches con vista a la selva y acceso a piscina infinita compartida.',
     description: 'Villa Mariposa es una residencia de lujo caribeña espaciosa, diseñada para familias y grupos que desean reunirse sin perder privacidad. Sus cinco habitaciones king, cinco baños, aire acondicionado y cocina lista para chef facilitan instalarse después de días en la playa Arrecife/Punta Uva. Los porches con vista a la selva, la piscina infinita compartida y el internet de fibra crean una experiencia tropical refinada.',
   },
   2: {
+    seoTitle: 'Villa Tucan | Playa Punta Uva Costa Rica',
+    seoDescription: 'Una casa de dos habitaciones en un nivel superior con cocina luminosa, aire acondicionado completo y acceso a piscina, gimnasio y plataforma de yoga compartidos.',
     shortDescription: 'Un refugio de selva de dos habitaciones con comodidades modernas, piscina compartida y fácil acceso a la playa.',
     description: 'Casa Tucan es un refugio de selva en un nivel superior con dos habitaciones, dos baños y aire acondicionado completo. La cocina luminosa, la cómoda sala y los grandes ventanales crean una base acogedora cerca de la playa Arrecife/Punta Uva. La piscina, el gimnasio y la plataforma de yoga compartidos ofrecen comodidad de resort, mientras los árboles cercanos traen perezosos, monos y aves a la experiencia.',
   },
   3: {
+    seoTitle: 'Villa Presidente | Playa Punta Uva Costa Rica',
+    seoDescription: 'Una elegante residencia de cinco habitaciones con baños privados, balcones, cocina lista para chef y amenidades compartidas estilo resort.',
     shortDescription: 'Una amplia residencia caribeña de cinco habitaciones con piscina infinita compartida y vistas a la selva.',
     description: 'Villa Presidente ofrece espacio, privacidad y comodidad caribeña para familias y grupos. Disfrute habitaciones amplias, cocina bien equipada, aire acondicionado y acceso a las áreas compartidas de piscina, gimnasio y yoga, todo cerca de Punta Uva.',
   },
   4: {
+    seoTitle: 'Villa Colibri | Playa Punta Uva Costa Rica',
     shortDescription: 'Un estudio tropical privado y acogedor con piscina, gimnasio y plataforma de yoga compartidos.',
     description: 'Villa Colibri es un estudio cómodo y tranquilo, pensado para una estadía relajada cerca de la playa. Cuenta con cocina, aire acondicionado, un rancho privado y acceso a la piscina infinita, gimnasio y plataforma de yoga compartidos.',
   },
   5: {
+    seoTitle: 'Villa Angel | Playa Punta Uva Costa Rica',
+    seoDescription: 'Una villa privada de madera con dos habitaciones, terrazas envolventes, hamacas, cocina completa y acceso a piscina infinita compartida.',
     shortDescription: 'Una villa de dos habitaciones rodeada de naturaleza, con piscina infinita compartida y comodidades modernas.',
     description: 'Villa Angel combina comodidad moderna con la tranquilidad de la costa caribeña. Sus dos habitaciones, cocina equipada, aire acondicionado y hamaca crean un lugar ideal para descansar, con acceso a la piscina infinita compartida y a los jardines.',
   },
   6: {
+    seoTitle: 'Villa Cacha | Playa Punta Uva Costa Rica',
     shortDescription: 'Una casa de tres habitaciones en la selva con piscina natural privada y a pocos minutos de la playa.',
     description: 'Villa Cacha ofrece una experiencia privada de selva con tres habitaciones, aire acondicionado y una piscina natural filtrada por plantas y roca volcánica. La casa de madera está rodeada de árboles frutales y vida silvestre, a pocos minutos a pie de la playa Arrecife/Punta Uva.',
   },
   7: {
+    seoTitle: 'Villa Carey | Playa Punta Uva Costa Rica',
     shortDescription: 'Una villa cómoda de dos habitaciones, cerca de la playa y con acceso a piscina infinita compartida.',
     description: 'Villa Carey es una base cómoda para explorar Punta Uva y Puerto Viejo. Disfrute dos habitaciones, cocina, aire acondicionado, patio o balcón y acceso a la piscina infinita compartida.',
   },

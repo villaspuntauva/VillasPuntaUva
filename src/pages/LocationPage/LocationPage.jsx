@@ -7,12 +7,12 @@ import SEO from '../../components/SEO/SEO'
 
 const seoText = {
   en: {
-    title: 'Location | Villas Punta Uva, Punta Uva Beach, Puerto Viejo',
-    description: "Villas Punta Uva sits a 5-minute walk to Playa Arrecife/Punta Uva Beach — one of the World's 50 Best Beaches. See directions and the area.",
+    title: 'Location | Punta Uva Beach, Puerto Viejo',
+    description: "Villas Punta Uva sits a 5-minute walk to Playa Arrecife/Punta Uva Beach — one of the World's 50 Best Beaches",
   },
   es: {
-    title: 'Ubicación | Villas Punta Uva, Playa Punta Uva, Puerto Viejo',
-    description: 'Villas Punta Uva está a 5 minutos caminando de Playa Arrecife/Punta Uva — una de las 50 Mejores Playas del Mundo. Vea las indicaciones y la zona.',
+    title: 'Ubicación | Playa Punta Uva, Puerto Viejo',
+    description: 'Villas Punta Uva está a 5 minutos caminando de Playa Arrecife/Punta Uva — una de las 50 Mejores Playas del Mundo',
   },
 }
 

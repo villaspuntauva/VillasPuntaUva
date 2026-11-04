@@ -5,11 +5,11 @@ import SEO from '../../components/SEO/SEO'
 const seoText = {
   en: {
     title: 'Explore Punta Uva & Puerto Viejo | Villas Punta Uva',
-    description: 'Tours, diving, surf lessons, chocolate tours, horseback riding, wildlife sanctuaries, and nightlife near Punta Uva and Puerto Viejo, Costa Rica.',
+    description: 'Tours, diving, surf lessons, chocolate tours, horseback riding, wildlife sanctuaries, and nightlife in Puerto Viejo, Costa Rica.',
   },
   es: {
     title: 'Explora Punta Uva y Puerto Viejo | Villas Punta Uva',
-    description: 'Tours, buceo, clases de surf, tours de chocolate, cabalgatas, santuarios de vida silvestre y vida nocturna cerca de Punta Uva y Puerto Viejo, Costa Rica.',
+    description: 'Tours, buceo, clases de surf, tours de chocolate, cabalgatas, santuarios de vida silvestre y vida nocturna en Puerto Viejo, Costa Rica.',
   },
 }
 

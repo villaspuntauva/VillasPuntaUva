@@ -56,7 +56,7 @@ export const images = {
 
 const en = {
   seo: {
-    title: 'Puerto Viejo, Costa Rica Guide: Culture, Food & Beaches',
+    title: 'Puerto Viejo Guide: Culture, Food & Beaches',
     description:
       "A local's guide to Puerto Viejo on Costa Rica's Caribbean coast: Afro-Caribbean culture, food, beaches from Playa Negra to Punta Uva, and jungle wildlife.",
   },
@@ -195,7 +195,7 @@ const en = {
 
 const es = {
   seo: {
-    title: 'Guía de Puerto Viejo, Costa Rica: cultura, comida y playas',
+    title: 'Guía de Puerto Viejo: cultura, comida y playas',
     description:
       'Guía local de Puerto Viejo en el Caribe de Costa Rica: cultura afrocaribeña, comida, playas de Playa Negra a Punta Uva y vida silvestre en la selva.',
   },
