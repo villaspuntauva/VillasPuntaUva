@@ -9,11 +9,11 @@ const GOOGLE_MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Villas+
 
 const seoText = {
   en: {
-    title: 'Contact Us | Villas Punta Uva, Puerto Viejo Costa Rica',
+    title: 'Contact Us | Puerto Viejo Costa Rica',
     description: 'Get in touch with Villas Punta Uva by phone, WhatsApp, or email to book your Caribbean coast Costa Rica villa.',
   },
   es: {
-    title: 'Contáctenos | Villas Punta Uva, Puerto Viejo Costa Rica',
+    title: 'Contáctenos | Puerto Viejo Costa Rica',
     description: 'Póngase en contacto con Villas Punta Uva por teléfono, WhatsApp o correo electrónico para reservar su villa en la costa caribeña de Costa Rica.',
   },
 }

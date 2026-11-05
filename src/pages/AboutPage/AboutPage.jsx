@@ -4,12 +4,12 @@ import SEO from '../../components/SEO/SEO'
 
 const seoText = {
   en: {
-    title: 'About Us | Villas Punta Uva, A Family-Run Retreat in Costa Rica',
-    description: "Meet the family behind Villas Punta Uva — a Caribbean coast retreat built to share Costa Rica's jungle, wildlife, and beaches with guests from around the world.",
+    title: 'About Us | Family-Run Home Rentals in Costa Rica',
+    description: "Meet the family behind Villas Punta Uva — built to share Costa Rica's jungle, wildlife, and beaches with guests from around the world.",
   },
   es: {
-    title: 'Sobre Nosotros | Villas Punta Uva, Refugio Familiar en Costa Rica',
-    description: 'Conozca a la familia detrás de Villas Punta Uva, un refugio en el Caribe creado para compartir la selva, la vida silvestre y las playas de Costa Rica.',
+    title: 'Sobre Nosotros | Casas de Alquiler Familiares en Costa Rica',
+    description: 'Conozca a la familia detrás de Villas Punta Uva, creado para compartir la selva, la vida silvestre y las playas de Costa Rica con huéspedes de todo el mundo.',
   },
 }
 

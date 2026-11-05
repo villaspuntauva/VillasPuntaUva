@@ -9,11 +9,11 @@ import { EXTRA_GUEST_NIGHTLY_FEE, PET_NIGHTLY_FEE } from '../../data/suites'
 const seoText = {
   en: {
     title: 'Frequently Asked Questions | Villas Punta Uva',
-    description: 'Answers about booking, minimum stays, pets, discounts, cancellation policy, and amenities at Villas Punta Uva in Punta Uva, Costa Rica.',
+    description: 'Answers about booking, pets, discounts, cancellation policy, and amenities at Villas Punta Uva in Punta Uva, Costa Rica.',
   },
   es: {
     title: 'Preguntas Frecuentes | Villas Punta Uva',
-    description: 'Respuestas sobre reservas, estadías mínimas, mascotas, descuentos, política de cancelación y comodidades en Villas Punta Uva, Costa Rica.',
+    description: 'Respuestas sobre reservas, mascotas, descuentos, política de cancelación y comodidades en Villas Punta Uva, Costa Rica.',
   },
 }
 
