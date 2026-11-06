@@ -27,7 +27,7 @@ export default function Explore() {
             >
               <img
                 src={item.image}
-                alt=""
+                alt={language === 'es' ? item.altEs : item.alt}
                 className={styles.image}
                 loading="lazy"
                 decoding="async"

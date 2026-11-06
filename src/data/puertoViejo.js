@@ -35,7 +35,7 @@ export const images = {
   },
   beachesFeature: '/images/puerto-viejo/beaches/playa-punta-uva-caribbean-coast-costa-rica.webp',
   beaches: {
-    playaNegra: null,
+    playaNegra: '/images/puerto-viejo/beaches/playa-negra-puerto-viejo-costa-rica.webp',
     cocles: '/images/puerto-viejo/beaches/playa-cocles-puerto-viejo-costa-rica.webp',
     chiquita: '/images/puerto-viejo/beaches/playa-chiquita-puerto-viejo-costa-rica.webp',
     puntaUva: '/images/puerto-viejo/beaches/punta-uva-beach-costa-rica.webp',
