@@ -33,7 +33,14 @@ export default function Explore() {
                 decoding="async"
               />
               <div className={styles.overlay} />
-              <h3 className={styles.title}>{language === 'es' ? exploreNames[item.name] : item.name}</h3>
+              <div className={styles.body}>
+                <h3 className={styles.title}>{language === 'es' ? exploreNames[item.name] : item.name}</h3>
+                <p className={styles.description}>{language === 'es' ? item.descriptionEs : item.description}</p>
+                <span className={styles.more}>
+                  {language === 'es' ? 'Explorar' : 'Explore'}
+                  <span aria-hidden="true"> →</span>
+                </span>
+              </div>
             </Link>
           ))}
         </div>

@@ -31,18 +31,18 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
 .card {
   position: relative;
   display: block;
+  aspect-ratio: 3 / 4;
   border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 16 / 5;
-  cursor: pointer;
-  color: inherit;
+  color: var(--color-white);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
 }
 
 .card:focus-visible {
@@ -55,7 +55,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .card:hover .image {
@@ -67,23 +67,51 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.45) 100%
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.78) 100%
   );
   pointer-events: none;
 }
 
-.title {
+.body {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: #fff;
-  font-family: var(--font-heading);
-  font-size: 1.65rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
+  padding: 22px 20px;
+}
+
+.title {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.15;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.description {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.more {
+  display: inline-block;
+  margin-top: 14px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.card:hover .more {
+  border-bottom-color: var(--color-white);
 }
 
 .btnWrap {
@@ -125,10 +153,42 @@
   color: var(--color-white);
 }
 
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* On phones the cards become a swipeable row, with the next card peeking in
+   so it's clear there's more to see. */
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    display: flex;
+    gap: 14px;
+    margin: 0 -24px;
+    padding: 0 24px 28px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 24px;
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 78%;
+    aspect-ratio: 3 / 4;
+    scroll-snap-align: start;
+  }
+
+  .btnWrap {
+    margin-top: 20px;
   }
 
   .heading {
