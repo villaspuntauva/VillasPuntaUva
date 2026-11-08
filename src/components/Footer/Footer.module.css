@@ -155,6 +155,18 @@
   text-underline-offset: 3px;
 }
 
+.cookieSettings {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.cookieSettings:hover,
 .legalLinks a:hover {
   text-decoration-thickness: 2px;
 }

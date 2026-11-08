@@ -3,6 +3,7 @@ import { FaInstagram, FaTiktok } from 'react-icons/fa'
 import { getLocalizedSuites } from '../../data/suites'
 import { business } from '../../data/business'
 import { legalContent, legalPages } from '../../data/legal'
+import { OPEN_EVENT } from '../CookieConsent/CookieConsent'
 import styles from './Footer.module.css'
 import { useLanguage } from '../../i18n/LanguageContext'
 
@@ -97,6 +98,9 @@ export default function Footer() {
           {legalPages.map((item) => (
             <Link key={item.key} to={localizePath(item.path)}>{legal[item.key].title}</Link>
           ))}
+          <button type="button" className={styles.cookieSettings} onClick={() => window.dispatchEvent(new Event(OPEN_EVENT))}>
+            {language === 'es' ? 'Configuración de cookies' : 'Cookie settings'}
+          </button>
         </nav>
         <p>&copy; {new Date().getFullYear()} Villas Punta Uva. {t('footer.rights')}</p>
         <p>

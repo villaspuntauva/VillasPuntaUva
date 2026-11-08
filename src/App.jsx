@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+import CookieConsent from './components/CookieConsent/CookieConsent'
 import ScrollRestoration from './components/ScrollRestoration/ScrollRestoration'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 import HomePage from './pages/HomePage/HomePage'
@@ -64,6 +65,7 @@ export default function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <CookieConsent />
     </>
   )
 }

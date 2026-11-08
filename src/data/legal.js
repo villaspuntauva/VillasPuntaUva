@@ -3,9 +3,10 @@
 // paragraphs (strings) and bullet lists ({ list: [...] }).
 //
 // These pages describe how the business actually operates today (booking by
-// message, 50% deposit, payment by transfer, no cookies or analytics). If any
-// of that changes — e.g. adding an online payment form, a contact form, or
-// analytics — these pages must be updated at the same time.
+// message, 50% deposit, payment by transfer, Google Analytics only after
+// cookie consent). If any of that changes — e.g. adding an online payment
+// form, a contact form, or another tracking tool — these pages must be updated
+// at the same time.
 
 import { business, legalIdentity, LEGAL_LAST_UPDATED } from './business'
 
@@ -48,7 +49,7 @@ const en = {
           body: [
             {
               list: [
-                'We do not use cookies, analytics, advertising pixels, or tracking tools on this website.',
+                'We do not use advertising pixels or advertising cookies on this website, and we only use analytics if you accept it.',
                 'We do not sell or rent your personal information.',
                 'We do not send marketing messages unless you ask us to.',
               ],
@@ -87,6 +88,7 @@ const en = {
         {
           heading: 'Third-party services on this website',
           body: [
+            'If you click “Accept” in our cookie banner, we use Google Analytics to understand how visitors use the website (for example, which pages are viewed, roughly where visitors are from, and what device they use). Google Analytics sets cookies and receives your IP address under Google’s Privacy Policy (policies.google.com/privacy). If you click “Decline” or make no choice, Google Analytics does not load. You can change your choice at any time with the “Cookie settings” link at the bottom of every page.',
             'The map on our Location page is provided by Google Maps. It only loads after you click “Load map”. Once loaded, Google may collect data such as your IP address and set its own cookies, under Google’s Privacy Policy (policies.google.com/privacy).',
             'Links to Airbnb, Google, Instagram, TikTok, WhatsApp, Waze, and news sites take you to services with their own privacy policies. We do not control what they collect.',
           ],
@@ -227,14 +229,21 @@ const en = {
       title: 'Cookie Policy',
       intro:
         'Cookies are small files that websites store in your browser. This page explains how this website uses them.',
-      seoDescription: 'Villas Punta Uva does not use cookies, analytics, or tracking on its website.',
+      seoDescription: 'Villas Punta Uva only uses Google Analytics cookies if you accept them in the cookie banner.',
       sections: [
         {
-          heading: 'We do not use cookies',
+          heading: 'Analytics cookies (only if you accept)',
           body: [
-            'This website does not set any cookies and does not use analytics, advertising, or tracking technologies such as pixels or fingerprinting. Our fonts and images are hosted on our own website, so viewing a page does not send your information to Google or other third parties.',
+            'If you click “Accept” in our cookie banner, we use Google Analytics to see how visitors use the website, such as which pages are popular. Google Analytics sets cookies whose names start with “_ga” and that last up to 2 years. If you click “Decline” or make no choice, Google Analytics does not load and no analytics cookies are set.',
+            'You can change your choice at any time with the “Cookie settings” link at the bottom of every page. If you withdraw your consent, we delete the analytics cookies on this website.',
+          ],
+        },
+        {
+          heading: 'Everything else',
+          body: [
+            'We do not use advertising cookies, pixels, or fingerprinting. Our fonts and images are hosted on our own website, so viewing a page does not send your information to Google or other third parties unless you accept analytics.',
             'If you choose a currency (US dollars or colones), we remember that choice in your browser’s local storage so prices stay in your currency on your next visit. It stays on your device, is never sent to us or anyone else, and is not used for tracking. You can clear it at any time by clearing this site’s data in your browser.',
-            'Because we do not use non-essential cookies, we do not show a cookie consent banner.',
+            'We also remember your cookie choice in your browser’s local storage, so we don’t ask again on every visit.',
           ],
         },
         {
@@ -252,7 +261,7 @@ const en = {
         {
           heading: 'Managing cookies',
           body: [
-            'You can block or delete cookies at any time in your browser settings. If we ever add cookies that are not strictly necessary, we will ask for your consent first and update this policy.',
+            'You can change your analytics choice at any time with the “Cookie settings” link at the bottom of every page, and you can block or delete cookies in your browser settings. If we add other cookies that are not strictly necessary, we will ask for your consent first and update this policy.',
           ],
         },
       ],
@@ -360,7 +369,7 @@ const es = {
           body: [
             {
               list: [
-                'No usamos cookies, analítica, píxeles publicitarios ni herramientas de seguimiento en este sitio web.',
+                'No usamos píxeles ni cookies publicitarias en este sitio web, y solo usamos analítica si usted la acepta.',
                 'No vendemos ni alquilamos su información personal.',
                 'No enviamos mensajes publicitarios a menos que usted lo solicite.',
               ],
@@ -399,6 +408,7 @@ const es = {
         {
           heading: 'Servicios de terceros en este sitio',
           body: [
+            'Si hace clic en “Aceptar” en nuestro aviso de cookies, usamos Google Analytics para entender cómo se usa el sitio (por ejemplo, qué páginas se visitan, de dónde son aproximadamente los visitantes y qué dispositivo usan). Google Analytics establece cookies y recibe su dirección IP según la Política de Privacidad de Google (policies.google.com/privacy). Si hace clic en “Rechazar” o no elige nada, Google Analytics no se carga. Puede cambiar su elección en cualquier momento con el enlace “Configuración de cookies” al final de cada página.',
             'El mapa de nuestra página de Ubicación es de Google Maps. Solo se carga después de que usted hace clic en “Cargar mapa”. Una vez cargado, Google puede recopilar datos como su dirección IP y establecer sus propias cookies, según la Política de Privacidad de Google (policies.google.com/privacy).',
             'Los enlaces a Airbnb, Google, Instagram, TikTok, WhatsApp, Waze y sitios de noticias le llevan a servicios con sus propias políticas de privacidad. No controlamos lo que ellos recopilan.',
           ],
@@ -539,14 +549,21 @@ const es = {
       title: 'Política de Cookies',
       intro:
         'Las cookies son pequeños archivos que los sitios web guardan en su navegador. Esta página explica cómo las usa este sitio.',
-      seoDescription: 'Villas Punta Uva no usa cookies, analítica ni seguimiento en su sitio web.',
+      seoDescription: 'Villas Punta Uva solo usa cookies de Google Analytics si usted las acepta en el aviso de cookies.',
       sections: [
         {
-          heading: 'No usamos cookies',
+          heading: 'Cookies de analítica (solo si las acepta)',
           body: [
-            'Este sitio web no establece cookies y no usa analítica, publicidad ni tecnologías de seguimiento como píxeles o huellas digitales. Nuestras fuentes e imágenes se alojan en nuestro propio sitio, por lo que ver una página no envía su información a Google ni a otros terceros.',
+            'Si hace clic en “Aceptar” en nuestro aviso de cookies, usamos Google Analytics para ver cómo se usa el sitio, por ejemplo qué páginas son más visitadas. Google Analytics establece cookies cuyo nombre empieza con “_ga” y que duran hasta 2 años. Si hace clic en “Rechazar” o no elige nada, Google Analytics no se carga y no se establecen cookies de analítica.',
+            'Puede cambiar su elección en cualquier momento con el enlace “Configuración de cookies” al final de cada página. Si retira su consentimiento, eliminamos las cookies de analítica de este sitio.',
+          ],
+        },
+        {
+          heading: 'Todo lo demás',
+          body: [
+            'No usamos cookies publicitarias, píxeles ni huellas digitales. Nuestras fuentes e imágenes se alojan en nuestro propio sitio, por lo que ver una página no envía su información a Google ni a otros terceros, a menos que acepte la analítica.',
             'Si elige una moneda (dólares o colones), recordamos esa elección en el almacenamiento local de su navegador para que los precios se mantengan en su moneda en su próxima visita. Se queda en su dispositivo, nunca se envía a nosotros ni a nadie más y no se usa para seguimiento. Puede borrarla en cualquier momento eliminando los datos de este sitio en su navegador.',
-            'Como no usamos cookies no esenciales, no mostramos un aviso de consentimiento de cookies.',
+            'También recordamos su elección de cookies en el almacenamiento local de su navegador, para no preguntarle en cada visita.',
           ],
         },
         {
@@ -564,7 +581,7 @@ const es = {
         {
           heading: 'Gestión de cookies',
           body: [
-            'Puede bloquear o eliminar cookies en cualquier momento desde la configuración de su navegador. Si en el futuro agregamos cookies que no sean estrictamente necesarias, le pediremos su consentimiento primero y actualizaremos esta política.',
+            'Puede cambiar su elección de analítica en cualquier momento con el enlace “Configuración de cookies” al final de cada página, y puede bloquear o eliminar cookies desde la configuración de su navegador. Si agregamos otras cookies que no sean estrictamente necesarias, le pediremos su consentimiento primero y actualizaremos esta política.',
           ],
         },
       ],

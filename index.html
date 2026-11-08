@@ -2,6 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js). Loads only after the visitor accepts analytics
+         cookies in the consent banner (src/components/CookieConsent). -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.loadGoogleAnalytics = function () {
+        if (window.gaLoaded) return;
+        window.gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LG4L9LH72';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-5LG4L9LH72');
+      };
+      try {
+        if (localStorage.getItem('vpu-analytics-consent') === 'granted') window.loadGoogleAnalytics();
+      } catch (e) {}
+    </script>
     <link rel="icon" type="image/png" href="/images/logos/logo-black-text.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
