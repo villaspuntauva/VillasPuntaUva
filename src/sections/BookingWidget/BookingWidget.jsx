@@ -24,7 +24,7 @@ export default function BookingWidget({
 
   const bookingValue = value ?? localValue
   const { arrival, departure, guests, kidsUnder5, pets } = bookingValue
-  const hasSearchValue = Boolean(arrival || departure || Number(guests) !== 2 || kidsUnder5 || pets)
+  const hasSearchValue = Boolean(arrival || departure || Number(guests) !== Number(defaultValue.guests) || kidsUnder5 || pets)
 
   const updateValue = (updates) => {
     const nextValue = {

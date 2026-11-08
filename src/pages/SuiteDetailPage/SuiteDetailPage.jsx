@@ -460,7 +460,7 @@ function BookingPanel({ suite }) {
   const { arrival, departure, guests, kidsUnder5, pets } = bookingValue
   const guestCount = Number(guests)
   const petCount = Number(pets) || 0
-  const hasSearchValue = Boolean(arrival || departure || guestCount !== 2 || kidsUnder5 || pets)
+  const hasSearchValue = Boolean(arrival || departure || guestCount !== 1 || kidsUnder5 || pets)
   const baseMinNights = suite.minNights ?? 1
   const minNights = getMinNights(suite, arrival)
   const availability = useAvailability()
