@@ -43,10 +43,12 @@ const sharedGymYogaImages = [
 const sharedPoolFeatureImage = '/images/infinity pool/drone-3.webp'
 
 const sharedBeachImages = [
-  '/images/beach/beach-2.webp',
   '/images/beach/beach-3.webp',
   '/images/beach/beach-4.webp',
-  '/images/beach/beach-5.webp',
+  '/images/beach/arrecife-punta-uva-2.webp',
+  '/images/beach/arrecife-punta-uva-7.webp',
+  '/images/beach/arrecife-punta-uva-39.webp',
+  '/images/beach/arrecife-punta-uva-42.webp',
 ]
 
 const mariposaFeaturedGallery = [...makeSuiteImages('mariposa', [1, 8, 30, 37]), sharedPoolFeatureImage]
