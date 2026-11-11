@@ -3,6 +3,7 @@ import Hero from '../../sections/Hero/Hero'
 import BookingWidget from '../../sections/BookingWidget/BookingWidget'
 import Location from '../../sections/Location/Location'
 import SuitesGallery from '../../sections/SuitesGallery/SuitesGallery'
+import VideoStory from '../../sections/VideoStory/VideoStory'
 import Experience from '../../sections/Experience/Experience'
 import Explore from '../../sections/Explore/Explore'
 import AboutUs from '../../sections/AboutUs/AboutUs'
@@ -58,6 +59,7 @@ export default function HomePage() {
       <BookingWidget onSearch={handleSuiteSearch} />
       <SuitesGallery />
       <Location />
+      <VideoStory />
       <Experience />
       <Explore />
       <AboutUs />
