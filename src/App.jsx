@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer'
 import CookieConsent from './components/CookieConsent/CookieConsent'
 import ScrollRestoration from './components/ScrollRestoration/ScrollRestoration'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
+import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
 import HomePage from './pages/HomePage/HomePage'
 import { useLanguage } from './i18n/LanguageContext'
 
@@ -65,6 +66,7 @@ export default function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <WhatsAppButton />
       <CookieConsent />
     </>
   )
