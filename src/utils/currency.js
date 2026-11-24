@@ -1,7 +1,7 @@
 // All villa rates and fees are maintained in USD in src/data/suites.js.
 // Visitors can view them in US dollars or in Costa Rican colones, converted
 // at this fixed rate (see CurrencyContext).
-export const USD_TO_CRC_RATE = 500
+export const USD_TO_CRC_RATE = 450
 
 export const CURRENCIES = ['USD', 'CRC']
 

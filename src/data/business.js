@@ -16,7 +16,7 @@ export const business = {
 }
 
 // Date the legal pages were last revised. Update whenever their text changes.
-export const LEGAL_LAST_UPDATED = '2026-11-07'
+export const LEGAL_LAST_UPDATED = '2026-11-24'
 
 // "Peter Tang" or, when an ID is set, "Peter Tang (identification 1-2345-6789)".
 export function legalIdentity(idLabel) {

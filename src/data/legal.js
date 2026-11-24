@@ -148,7 +148,7 @@ const en = {
           heading: 'Information and prices on this website',
           body: [
             'We work to keep villa descriptions, photos, availability, and rates accurate, but they are for information and may change. The availability calendar is synced from our other booking channels and may be briefly out of date.',
-            'Price calculations on this website are estimates. Rates are set in US dollars. You can view them in US dollars or Costa Rican colones; colón amounts use a fixed reference rate of ₡500 per US$1, which may differ from your bank’s exchange rate. Holiday rates may apply. Your final price, including any applicable taxes and fees, is the one stated in the written quote we send you before you pay.',
+            'Price calculations on this website are estimates. Rates are set in US dollars. You can view them in US dollars or Costa Rican colones; colón amounts use a fixed reference rate of ₡450 per US$1, which may differ from your bank’s exchange rate. Holiday rates may apply. Your final price, including any applicable taxes and fees, is the one stated in the written quote we send you before you pay.',
           ],
         },
         {
@@ -468,7 +468,7 @@ const es = {
           heading: 'Información y precios en este sitio',
           body: [
             'Procuramos que las descripciones, fotos, disponibilidad y tarifas de las villas sean exactas, pero son informativas y pueden cambiar. El calendario de disponibilidad se sincroniza con nuestros otros canales de reserva y puede estar desactualizado por un corto tiempo.',
-            'Los cálculos de precio en este sitio son estimaciones. Las tarifas se fijan en dólares estadounidenses. Puede verlas en dólares o en colones; los montos en colones usan un tipo de cambio de referencia fijo de ₡500 por US$1, que puede diferir del tipo de cambio de su banco. Pueden aplicar tarifas de temporada festiva. Su precio final, incluidos los impuestos y cargos que correspondan, es el indicado en la cotización escrita que le enviamos antes de que usted pague.',
+            'Los cálculos de precio en este sitio son estimaciones. Las tarifas se fijan en dólares estadounidenses. Puede verlas en dólares o en colones; los montos en colones usan un tipo de cambio de referencia fijo de ₡450 por US$1, que puede diferir del tipo de cambio de su banco. Pueden aplicar tarifas de temporada festiva. Su precio final, incluidos los impuestos y cargos que correspondan, es el indicado en la cotización escrita que le enviamos antes de que usted pague.',
           ],
         },
         {
