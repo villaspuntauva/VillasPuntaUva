@@ -57,8 +57,8 @@ const content = {
     foodEyebrow: 'Around the table',
     foodTitle: 'Food that brings everyone together',
     foodText: [
-      'Meals are often the heart of a retreat. The villas’ chef-ready kitchens give a private chef or caterer room to work, and the long tables seat your whole group at once.',
-      'Think tropical fruit plates in the morning, colourful bowls and salads at lunch, and fresh juices served straight from the counter. Ask us about private chefs and catering when you plan your dates.',
+      'Meals are often the heart of a retreat. The villas’ large, fully equipped kitchens have room for your group to cook together, and the long tables seat everyone at once.',
+      'Think tropical fruit plates in the morning, colourful bowls and salads at lunch, and fresh juices served straight from the counter. If you’d rather have someone else do the cooking, we’re happy to share contacts for local private chefs and caterers you can book directly.',
     ],
     galleryEyebrow: 'Retreat moments',
     galleryTitle: 'A taste of a retreat at Villas Punta Uva',
@@ -112,8 +112,8 @@ const content = {
     foodEyebrow: 'Alrededor de la mesa',
     foodTitle: 'Comida que une a todos',
     foodText: [
-      'Las comidas suelen ser el corazón de un retiro. Las cocinas equipadas de las villas le dan espacio de trabajo a un chef privado o servicio de catering, y las mesas largas reciben a todo su grupo a la vez.',
-      'Platos de fruta tropical por la mañana, tazones y ensaladas coloridas al almuerzo y jugos frescos servidos directamente en la barra. Pregúntenos por chefs privados y catering cuando planifique sus fechas.',
+      'Las comidas suelen ser el corazón de un retiro. Las cocinas amplias y completamente equipadas de las villas tienen espacio para que su grupo cocine en conjunto, y las mesas largas reciben a todos a la vez.',
+      'Platos de fruta tropical por la mañana, tazones y ensaladas coloridas al almuerzo y jugos frescos servidos directamente en la barra. Si prefiere que otra persona se encargue de cocinar, con gusto le compartimos contactos de chefs privados y servicios de catering locales que puede contratar directamente.',
     ],
     galleryEyebrow: 'Momentos de retiro',
     galleryTitle: 'Un vistazo a un retiro en Villas Punta Uva',
