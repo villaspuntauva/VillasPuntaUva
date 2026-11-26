@@ -19,6 +19,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage/AboutPage'))
 const ExplorePage = lazy(() => import('./pages/ExplorePage/ExplorePage'))
 const PuertoViejoPage = lazy(() => import('./pages/PuertoViejoPage/PuertoViejoPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'))
+const RetreatsPage = lazy(() => import('./pages/RetreatsPage/RetreatsPage'))
 const FAQPage = lazy(() => import('./pages/FAQPage/FAQPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'))
 const LegalPage = lazy(() => import('./pages/LegalPage/LegalPage'))
@@ -33,6 +34,7 @@ const routes = [
   { path: '/about', element: <AboutPage /> },
   { path: '/puerto-viejo-costa-rica', element: <PuertoViejoPage /> },
   { path: '/explore', element: <ExplorePage /> },
+  { path: '/retreats', element: <RetreatsPage /> },
   { path: '/contact', element: <ContactPage /> },
   { path: '/faq', element: <FAQPage /> },
   { path: '/privacy', element: <LegalPage key="privacy" page="privacy" /> },

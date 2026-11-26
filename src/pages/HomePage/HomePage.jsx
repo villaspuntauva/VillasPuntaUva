@@ -9,6 +9,7 @@ import Explore from '../../sections/Explore/Explore'
 import AboutUs from '../../sections/AboutUs/AboutUs'
 import Reviews from '../../sections/Reviews/Reviews'
 import TrustBadges from '../../sections/TrustBadges/TrustBadges'
+import StayConnected from '../../sections/StayConnected/StayConnected'
 import SEO from '../../components/SEO/SEO'
 import { useLanguage } from '../../i18n/LanguageContext'
 
@@ -65,6 +66,7 @@ export default function HomePage() {
       <AboutUs />
       <TrustBadges />
       <Reviews />
+      <StayConnected />
     </>
   )
 }

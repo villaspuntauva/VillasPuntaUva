@@ -918,6 +918,7 @@ function parseIsoDate(value) {
 const HOLIDAY_MIN_NIGHTS = [
   { start: '2026-12-30', end: '2026-12-31', minNights: 3 },
   { start: '2027-03-24', end: '2027-03-26', minNights: 3 },
+  { start: '2027-12-25', end: '2028-01-01', minNights: 7 },
 ]
 
 // Every individual check-in date covered by a holiday rule.

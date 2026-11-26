@@ -15,6 +15,14 @@ export const business = {
   website: 'https://www.villaspuntauva.com',
 }
 
+// Social profiles, shown in the footer and the home page "Stay connected"
+// section. A profile left as '' is hidden everywhere it would appear.
+export const socialLinks = {
+  instagram: 'https://www.instagram.com/villaspuntauva/',
+  tiktok: 'https://www.tiktok.com/@villaspuntauva',
+  facebook: 'https://www.facebook.com/profile.php?id=100089108177468',
+}
+
 // Date the legal pages were last revised. Update whenever their text changes.
 export const LEGAL_LAST_UPDATED = '2026-11-24'
 

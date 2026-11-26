@@ -68,7 +68,7 @@ const faqSectionsEn = [
       },
       {
         question: 'Can I bring a pet?',
-        answer: `Yes, every villa is pet-friendly. Pets are ${formatBoth(PET_NIGHTLY_FEE, 'en-US')} per night.`,
+        answer: `Yes, every villa is pet-friendly. Pets are ${formatBoth(PET_NIGHTLY_FEE, 'en-US')} per night. Pets must be kept on a leash at all times anywhere on the property, and they are not allowed on the furniture.`,
       },
       {
         question: 'Does pricing change during the holidays?',
@@ -178,7 +178,7 @@ const faqSectionsEs = [
       },
       {
         question: '¿Puedo llevar una mascota?',
-        answer: `Sí, todas las villas son pet-friendly. Las mascotas tienen un costo de ${formatBoth(PET_NIGHTLY_FEE, 'es-CR')} por noche.`,
+        answer: `Sí, todas las villas son pet-friendly. Las mascotas tienen un costo de ${formatBoth(PET_NIGHTLY_FEE, 'es-CR')} por noche. Las mascotas deben estar con correa en todo momento en cualquier parte de la propiedad y no se permite que se suban a los muebles.`,
       },
       {
         question: '¿Las tarifas cambian en fechas festivas?',

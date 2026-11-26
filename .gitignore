@@ -11,3 +11,7 @@ assets/videos
 
 # Full-size photo originals; only the resized .webp files are published
 public/images/puerto-viejo/**/*FINAL*/
+
+# Full-size retreat photo originals; the page uses the resized .webp
+# copies in public/images/retreats
+public/images/Retreat/

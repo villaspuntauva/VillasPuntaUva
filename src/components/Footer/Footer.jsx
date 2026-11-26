@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { FaInstagram, FaTiktok } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { getLocalizedSuites } from '../../data/suites'
-import { business } from '../../data/business'
+import { business, socialLinks } from '../../data/business'
 import { legalContent, legalPages } from '../../data/legal'
 import { OPEN_EVENT } from '../CookieConsent/CookieConsent'
 import styles from './Footer.module.css'
@@ -45,6 +45,7 @@ export default function Footer() {
               <Link to={localizePath('/puerto-viejo-costa-rica')}>{t('nav.puertoViejo')}</Link>
               <Link to={localizePath('/about')}>{t('nav.about')}</Link>
               <Link to={localizePath('/explore')}>{t('nav.explore')}</Link>
+              <Link to={localizePath('/retreats')}>{t('nav.retreats')}</Link>
               <Link to={localizePath('/contact')}>{t('nav.contact')}</Link>
               <Link to={localizePath('/faq')}>{t('nav.faqs')}</Link>
             </nav>
@@ -72,22 +73,36 @@ export default function Footer() {
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>{t('footer.follow')}</h4>
             <div className={styles.socials}>
-              <a
-                href="https://www.instagram.com/villaspuntauva/"
-                aria-label={`Instagram (${t('common.newTab')})`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaInstagram size={22} />
-              </a>
-              <a
-                href="https://www.tiktok.com/@villaspuntauva"
-                aria-label={`TikTok (${t('common.newTab')})`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaTiktok size={20} />
-              </a>
+              {socialLinks.instagram && (
+                <a
+                  href={socialLinks.instagram}
+                  aria-label={`Instagram (${t('common.newTab')})`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaInstagram size={22} />
+                </a>
+              )}
+              {socialLinks.tiktok && (
+                <a
+                  href={socialLinks.tiktok}
+                  aria-label={`TikTok (${t('common.newTab')})`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaTiktok size={20} />
+                </a>
+              )}
+              {socialLinks.facebook && (
+                <a
+                  href={socialLinks.facebook}
+                  aria-label={`Facebook (${t('common.newTab')})`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaFacebookF size={19} />
+                </a>
+              )}
             </div>
           </div>
         </div>

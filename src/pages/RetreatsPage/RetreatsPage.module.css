@@ -1,0 +1,491 @@
+.page {
+  background: var(--color-bg-light);
+  color: var(--color-text);
+}
+
+.eyebrow {
+  margin-bottom: 10px;
+  color: var(--color-primary-dark);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page h1,
+.page h2,
+.page h3 {
+  text-wrap: balance;
+}
+
+.page h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--color-dark);
+  line-height: 1.08;
+}
+
+.page h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 400;
+  color: var(--color-dark);
+  line-height: 1.15;
+}
+
+.sectionHeader {
+  max-width: 720px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: url('/images/retreats/retreat-18.webp') center 60% / cover no-repeat;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.4) 55%, rgba(0, 0, 0, 0.6));
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  padding: calc(var(--nav-height) + 48px) 24px 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.heroEyebrow {
+  color: var(--color-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 400;
+  color: var(--color-white);
+  line-height: 1.05;
+}
+
+.heroText {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.heroButton,
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.heroButton {
+  margin-top: 8px;
+  background: var(--color-white);
+  color: var(--color-primary-dark);
+}
+
+.heroButton:hover {
+  background: var(--color-secondary);
+}
+
+/* Intro */
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: 64px;
+  align-items: center;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 96px 24px 80px;
+}
+
+.introText p:not(.eyebrow),
+.foodText p:not(.eyebrow),
+.stayInner p:not(.eyebrow) {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.introImage {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+}
+
+/* Stats */
+
+.stats {
+  background: var(--color-bg-footer);
+  color: var(--color-white);
+}
+
+.statsInner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 44px 24px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  text-align: center;
+}
+
+.stat + .stat {
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.stat dd {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1;
+}
+
+.stat dt {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Location */
+
+.location {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 96px 24px;
+}
+
+.locationImage {
+  order: 2;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+}
+
+.locationText p:not(.eyebrow) {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.locationPoints {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 24px 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(61, 122, 135, 0.22);
+}
+
+.locationPoints li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+.locationPoints li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+/* Spaces */
+
+.spaces {
+  background: var(--color-white);
+  padding: 96px 24px;
+}
+
+.spaceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.spaceCard {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background: var(--color-bg-light);
+}
+
+.spaceCard img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.spaceBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 24px 28px;
+}
+
+.spaceBody p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* Food */
+
+.food {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 96px 24px;
+}
+
+.foodImages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.foodImages img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.foodImages img:last-child {
+  margin-top: 48px;
+}
+
+/* Gallery */
+
+.gallery {
+  background: var(--color-bg-sand);
+  padding: 96px 24px;
+}
+
+.galleryGrid {
+  columns: 3;
+  column-gap: 16px;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.galleryGrid img {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: var(--border-radius);
+  break-inside: avoid;
+}
+
+.galleryGrid img:nth-child(3n + 2) {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Where to stay */
+
+.stay {
+  padding: 96px 24px;
+}
+
+.stayInner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.textLink {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--color-link);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Call to action */
+
+.cta {
+  position: relative;
+  scroll-margin-top: var(--nav-height);
+  background: url('/images/retreats/retreat-20.webp') center / cover no-repeat;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(23, 84, 107, 0.82);
+}
+
+.ctaInner {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 96px 24px;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.page .cta h2 {
+  color: var(--color-white);
+}
+
+.ctaInner p {
+  margin-top: 18px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.ctaPrimary {
+  background: #25d366;
+  color: #0b3d20;
+}
+
+.ctaPrimary:hover {
+  background: #1fbf5b;
+}
+
+.ctaSecondary {
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  color: var(--color-white);
+}
+
+.ctaSecondary:hover {
+  background: var(--color-white);
+  color: var(--color-primary-dark);
+}
+
+@media (max-width: 1000px) {
+  .spaceGrid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 900px) {
+  .intro,
+  .location,
+  .food {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .introImage {
+    max-width: 480px;
+  }
+
+  .statsInner {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 32px;
+  }
+
+  .stat:nth-child(3) {
+    border-left: none;
+  }
+
+  .galleryGrid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 560px;
+  }
+
+  .spaces,
+  .gallery,
+  .stay {
+    padding: 72px 18px;
+  }
+
+  .intro,
+  .location,
+  .food {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .galleryGrid {
+    column-gap: 10px;
+  }
+
+  .galleryGrid img {
+    margin-bottom: 10px;
+  }
+
+  .foodImages img:last-child {
+    margin-top: 32px;
+  }
+}

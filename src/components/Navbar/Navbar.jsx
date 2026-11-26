@@ -85,6 +85,7 @@ export default function Navbar() {
         { key: 'night-life', to: `${localizePath('/explore')}#night-life`, label: t('nav.exploreNightLife') },
       ],
     },
+    { to: localizePath('/retreats'), label: t('nav.retreats') },
     { to: localizePath('/about'), label: t('nav.about') },
     { to: localizePath('/contact'), label: t('nav.contact') },
     { to: localizePath('/faq'), label: t('nav.faqs') },
