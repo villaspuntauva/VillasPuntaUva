@@ -4,7 +4,7 @@ import SEO from '../../components/SEO/SEO'
 
 const seoText = {
   en: {
-    title: 'Explore Punta Uva & Puerto Viejo | Villas Punta Uva',
+    title: 'Things to Do in Punta Uva & Puerto Viejo',
     description: 'Tours, diving, surf lessons, chocolate tours, horseback riding, wildlife sanctuaries, and nightlife in Puerto Viejo, Costa Rica.',
   },
   es: {

@@ -17,7 +17,7 @@ const totalSleeps = suites.reduce((sum, suite) => sum + suite.sleeps, 0)
 
 const content = {
   en: {
-    seoTitle: 'Retreats in Costa Rica | Yoga & Wellness Retreat Venue',
+    seoTitle: `Yoga Retreat Venue in Punta Uva, Costa Rica | ${totalVillas} Villas`,
     seoDescription: `Host a yoga, wellness, or group retreat in Punta Uva, Costa Rica: ${totalVillas} private villas, a yoga platform, gym, infinity pool, and a beach five minutes away.`,
     heroEyebrow: 'Retreats',
     heroTitle: 'Retreats on the Caribbean coast',

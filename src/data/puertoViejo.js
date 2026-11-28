@@ -56,7 +56,7 @@ export const images = {
 
 const en = {
   seo: {
-    title: 'Puerto Viejo Guide: Culture, Food & Beaches',
+    title: 'Puerto Viejo Guide: Beaches, Food & Things to Do',
     description:
       "A local's guide to Puerto Viejo on Costa Rica's Caribbean coast: Afro-Caribbean culture, food, beaches from Playa Negra to Punta Uva, and jungle wildlife.",
   },

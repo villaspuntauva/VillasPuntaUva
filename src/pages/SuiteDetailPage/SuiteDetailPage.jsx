@@ -46,6 +46,10 @@ import { useCurrency } from '../../i18n/CurrencyContext'
 import CurrencySwitch from '../../components/CurrencySwitch/CurrencySwitch'
 import { useDialogFocus } from '../../hooks/useDialogFocus'
 
+// SEO copy can say "from ${{fromRate}}/night"; fill it from the rate table so
+// the advertised price follows rate changes instead of going stale.
+const fillSeoRate = (text, suite) => text.replace('{{fromRate}}', getLowestNightlyRate(suite))
+
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   month: 'short',
   day: 'numeric',
@@ -697,8 +701,8 @@ export default function SuiteDetailPage() {
   return (
     <div className={styles.page}>
       <SEO
-        title={suite.seoTitle ?? `${suite.name} | Villas Punta Uva, ${language === 'es' ? 'Playa Punta Uva' : 'Punta Uva Beach'} Costa Rica`}
-        description={suite.seoDescription ?? suite.shortDescription}
+        title={fillSeoRate(suite.seoTitle ?? `${suite.name} | Villas Punta Uva, ${language === 'es' ? 'Playa Punta Uva' : 'Punta Uva Beach'} Costa Rica`, suite)}
+        description={fillSeoRate(suite.seoDescription ?? suite.shortDescription, suite)}
         path={`/suites/${suite.slug}`}
         image={`${SITE_URL}${suite.image}`}
         jsonLd={[suiteJsonLd, breadcrumbJsonLd]}

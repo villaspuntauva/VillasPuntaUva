@@ -7,7 +7,7 @@ import SEO from '../../components/SEO/SEO'
 
 const seoText = {
   en: {
-    title: 'Location | Punta Uva Beach, Puerto Viejo',
+    title: 'Location | 5-Min Walk to Punta Uva Beach, Puerto Viejo',
     description: "Villas Punta Uva sits a 5-minute walk to Playa Arrecife/Punta Uva Beach — one of the World's 50 Best Beaches",
   },
   es: {

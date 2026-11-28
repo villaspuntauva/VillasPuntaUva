@@ -13,8 +13,8 @@ import CurrencySwitch from '../../components/CurrencySwitch/CurrencySwitch'
 
 const seoText = {
   en: {
-    title: 'Villas & Rates | Villas Punta Uva',
-    description: 'Browse 7 private villas in Punta Uva, Puerto Viejo — from 1 to 5-bedroom homes. Check real-time availability and rates.',
+    title: 'Punta Uva Vacation Rentals | 7 Villas & Rates',
+    description: 'Compare 7 private villas in Punta Uva, Puerto Viejo, from studios to 5-bedroom homes for 10. Real-time availability. Book direct for the best rates.',
   },
   es: {
     title: 'Villas y Tarifas | Villas Punta Uva',

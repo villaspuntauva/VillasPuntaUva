@@ -15,8 +15,8 @@ import { useLanguage } from '../../i18n/LanguageContext'
 
 const seoText = {
   en: {
-    title: 'Luxury Homes in Punta Uva, Costa Rica',
-    description: "Just steps from one of the Caribbean's most beautiful beaches. Luxury villas for families, couples and friends",
+    title: 'Villas Punta Uva | Vacation Rentals in Punta Uva, Costa Rica',
+    description: '7 private villas with A/C, infinity pool, gym and yoga deck, a 5-min walk to Playa Arrecife in Punta Uva, Puerto Viejo. Book direct for the best rates.',
   },
   es: {
     title: 'Casas de Lujo en Punta Uva, Costa Rica',

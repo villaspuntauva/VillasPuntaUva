@@ -179,8 +179,8 @@ export const suites = [
     bathsLabel: '5 baths',
     cleaningFee: 150,
     petFriendly: true,
-    seoTitle: 'Villa Mariposa | Punta Uva Beach Costa Rica',
-    seoDescription: 'A spacious five-bed and bath Caribbean villa perfect for big groups of families or friends',
+    seoTitle: 'Villa Mariposa Punta Uva | 5-Bedroom Villa, Sleeps 10',
+    seoDescription: "5 king suites with private baths, A/C, chef's kitchen and infinity pool access, a 5-min walk to Punta Uva beach, Costa Rica. Ideal for big groups.",
     shortDescription:
       'A spacious five-bedroom Caribbean villa with king suites, a chef-ready kitchen, jungle-view porches, and shared infinity pool access.',
     description:
@@ -279,8 +279,8 @@ export const suites = [
     bathsLabel: '2 baths',
     cleaningFee: 60,
     petFriendly: true,
-    seoTitle: 'Villa Tucan | Punta Uva Beach Costa Rica',
-    seoDescription: 'An upper-level two-bedroom home with a bright kitchen, full air conditioning, and shared pool, gym, and yoga deck access.',
+    seoTitle: 'Villa Tucan Punta Uva | 2-Bedroom Villa with Pool & A/C',
+    seoDescription: 'Bright 2-bedroom villa with full A/C, fiber + Starlink Wi-Fi, infinity pool, gym and yoga deck. A 5-min walk to Punta Uva beach, Costa Rica.',
     shortDescription:
       'An upper-level two-bedroom jungle retreat with a bright kitchen, full air conditioning, and shared pool, gym, and yoga deck access.',
     description:
@@ -376,8 +376,8 @@ export const suites = [
     bathsLabel: '5 baths',
     cleaningFee: 150,
     petFriendly: true,
-    seoTitle: 'Villa Presidente | Punta Uva Beach Costa Rica',
-    seoDescription: 'An elegant five-bedroom residence with private bathrooms, balconies, a chef-ready kitchen, and shared resort-style amenities.',
+    seoTitle: 'Villa Presidente Punta Uva | 5-Bedroom Villa, Sleeps 10',
+    seoDescription: "Elegant 5-bedroom, 5-bath villa with A/C, wraparound veranda, chef's kitchen and infinity pool, a 5-min walk to Punta Uva beach in Puerto Viejo.",
     shortDescription:
       'An elegant five-bedroom residence with private bathrooms, balconies, a chef-ready kitchen, and shared resort-style amenities.',
     description:
@@ -476,7 +476,8 @@ export const suites = [
     bathsLabel: '1 bath',
     cleaningFee: 30,
     petFriendly: true,
-    seoTitle: 'Villa Colibri | Punta Uva Beach Costa Rica',
+    seoTitle: 'Villa Colibri Punta Uva | A/C Studio from ${{fromRate}}/night',
+    seoDescription: 'Cozy studio for 2 with A/C, kitchen, private rancho, hammocks, infinity pool and gym access, a 5-min walk to Punta Uva beach in Puerto Viejo.',
     shortDescription:
       'A cozy air-conditioned studio with a private kitchen, outdoor rancho, hammocks, and shared pool and gym access.',
     description:
@@ -571,8 +572,8 @@ export const suites = [
     bathsLabel: '2 baths',
     cleaningFee: 100,
     petFriendly: true,
-    seoTitle: 'Villa Angel | Punta Uva Beach Costa Rica',
-    seoDescription: 'A private wood-style two-bedroom villa with wraparound porches, hammocks, full kitchen, and shared infinity pool access.',
+    seoTitle: 'Villa Angel Punta Uva | 2-Bedroom Jungle Villa with Pool',
+    seoDescription: 'Private 2-bedroom wood villa with wraparound porches, hammocks, A/C and infinity pool access, a 5-min walk to Punta Uva beach. From ${{fromRate}}/night.',
     shortDescription:
       'A private wood-style two-bedroom villa with wraparound porches, hammocks, full kitchen, and shared infinity pool access.',
     description:
@@ -668,7 +669,8 @@ export const suites = [
     bathsLabel: '2 baths',
     cleaningFee: 125,
     petFriendly: true,
-    seoTitle: 'Villa Cacha | Punta Uva Beach Costa Rica',
+    seoTitle: 'Villa Cacha Punta Uva | 3-Bedroom Villa, Private Natural Pool',
+    seoDescription: '3-bedroom wood home for 6 with a private chemical-free natural pool, big decks, A/C and fruit trees, a 7-min walk to Punta Uva beach. Pets welcome.',
     shortDescription:
       'A natural wood three-bedroom home with expansive decks, private natural pool, and lush fruit-tree surroundings.',
     description:
@@ -764,7 +766,8 @@ export const suites = [
     bathsLabel: '1 bath',
     cleaningFee: 50,
     petFriendly: true,
-    seoTitle: 'Villa Carey | Punta Uva Beach Costa Rica',
+    seoTitle: 'Villa Carey Punta Uva | 2-Bedroom Home with A/C, Sleeps 4',
+    seoDescription: 'Cozy 2-bedroom wood home with A/C in each room, a porch and infinity pool access next door, a 7-min walk to Punta Uva beach, Costa Rica.',
     shortDescription:
       'A cozy two-bedroom wood home with air conditioning, porch seating, and shared infinity pool access nearby.',
     description:
@@ -1113,6 +1116,7 @@ const spanishSuiteNarratives = {
   },
   4: {
     seoTitle: 'Villa Colibri | Playa Punta Uva Costa Rica',
+    seoDescription: 'Acogedor estudio para 2 con A/C, cocina, rancho privado, hamacas, piscina infinita y gimnasio, a 5 minutos caminando de Playa Punta Uva en Puerto Viejo.',
     shortDescription: 'Un estudio tropical privado y acogedor con piscina, gimnasio y plataforma de yoga compartidos.',
     description: 'Villa Colibri es un estudio cómodo y tranquilo, pensado para una estadía relajada cerca de la playa. Cuenta con cocina, aire acondicionado, un rancho privado y acceso a la piscina infinita, gimnasio y plataforma de yoga compartidos.',
   },
@@ -1124,11 +1128,13 @@ const spanishSuiteNarratives = {
   },
   6: {
     seoTitle: 'Villa Cacha | Playa Punta Uva Costa Rica',
+    seoDescription: 'Casa de madera de 3 habitaciones para 6 con piscina natural privada sin químicos, amplias terrazas, A/C y árboles frutales, a 7 minutos de Playa Punta Uva. Se aceptan mascotas.',
     shortDescription: 'Una casa de tres habitaciones en la selva con piscina natural privada y a pocos minutos de la playa.',
     description: 'Villa Cacha ofrece una experiencia privada de selva con tres habitaciones, aire acondicionado y una piscina natural filtrada por plantas y roca volcánica. La casa de madera está rodeada de árboles frutales y vida silvestre, a pocos minutos a pie de la playa Arrecife/Punta Uva.',
   },
   7: {
     seoTitle: 'Villa Carey | Playa Punta Uva Costa Rica',
+    seoDescription: 'Acogedora casa de madera de 2 habitaciones con A/C en cada cuarto, porche y acceso a piscina infinita cercana, a 7 minutos caminando de Playa Punta Uva, Costa Rica.',
     shortDescription: 'Una villa cómoda de dos habitaciones, cerca de la playa y con acceso a piscina infinita compartida.',
     description: 'Villa Carey es una base cómoda para explorar Punta Uva y Puerto Viejo. Disfrute dos habitaciones, cocina, aire acondicionado, patio o balcón y acceso a la piscina infinita compartida.',
   },
